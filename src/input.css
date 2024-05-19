@@ -1,13 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    @font-face {
-      font-family: 'sans-semi';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url(/font/EncodeSansExpanded-SemiBold.ttf) format('ttf');
-    }
-  }

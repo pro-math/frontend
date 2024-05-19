@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["game.html"],
+  content: ["profile.html"],
   daisyui: {
     themes: [
       "light",
@@ -39,7 +39,15 @@ module.exports = {
   },
   theme: { 
 
-    extend: {},
+    extend: {
+      spacing: {
+        'xs': '2rem',
+        '5xs': '10rem',
+        '7xs': '14rem',
+        '13xs': '26rem',
+        '20xs': '35rem'
+      }
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -59,6 +67,9 @@ module.exports = {
       '4': '20px',
       '5': '25px',
       '6': '30px',
+    },
+    fontFamily: {
+      body: ["Montserrat"]
     }
     
   },
