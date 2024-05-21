@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["profile.html"],
+  content: ["game.html", "profile.html"], 
   daisyui: {
     themes: [
       "light",
@@ -70,6 +70,9 @@ module.exports = {
     },
     fontFamily: {
       body: ["Montserrat"]
+    },
+    borderRadius: {
+      'full': '50%',
     }
     
   },
