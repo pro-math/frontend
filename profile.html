@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="nord">
+<html lang="ru" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -92,8 +92,7 @@
                                             d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
                                             clip-rule="evenodd" />
                                     </svg>
-                                    <input type="password" value="" placeholder="Пароль" class="grow"
-                                        value="password" />
+                                    <input type="password" placeholder="Пароль" class="grow" value="password" />
                                 </label>
                                 <div class="form-control">
                                     <label class="label cursor-pointer">
@@ -141,8 +140,7 @@
                                             d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
                                             clip-rule="evenodd" />
                                     </svg>
-                                    <input type="password" value="" placeholder="Пароль" class="grow"
-                                        value="password" />
+                                    <input type="password" placeholder="Пароль" class="grow" value="password" />
                                 </label>
                                 <label class="input input-bordered flex items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
@@ -151,7 +149,7 @@
                                             d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
                                             clip-rule="evenodd" />
                                     </svg>
-                                    <input type="password" value="" placeholder="Повторите пароль" class="grow"
+                                    <input type="password" placeholder="Повторите пароль" class="grow"
                                         value="password" />
                                 </label>
                                 <button class="btn btn-md bordered text-xl">войти</button>
@@ -172,129 +170,106 @@
     </header>
     <main>
 
-        <div class="flex p-4 flex-col justify-evenly max-h-20xs my-6 space-x-6">
+        <div class="flex container items-center mx-auto w-5/6 flex-col my-6 space-x-6">
             <!-- секция с личными данными и аватаркой -->
-            <section
-                class="flex w-auto items-center justify-center bg-base-300 border-2 rounded-sm  border-black space-y-4 px-4 ">
+            
+            <section class="flex justify-evenly items-center bg-base-300 border-2 rounded-sm space-x-3xs border-black p-2 ">
 
                 <!-- ава -->
                 <div class="avatar">
-                    <div class="border-2 bg-primary/50 border-black  w-5xs rounded-full">
+                    <div class="border-2 bg-primary/50 border-black  w-3xs rounded-full">
                         <img src="./img/avatar.png">
                     </div>
 
                 </div>
 
-                <input type="file"
-                    class="file-input hidden file-input-bordered w-5xs h-xs text-sm text-center border rounded-ms border-dark-grey max-w-xs" />
-                <div class="flex flex-col bg-neutral/50 border-2 border-primary p-6 rounded-sm w-7xs space-y-4">
-                    <div class="space-y-2 ">
-                        <p class="text-neutral-content font-bold">НИКНЕЙМ</p>
-                        <span class="">rwerrx</span>
+                <!-- <input type="file"
+                    class="file-input hidden file-input-bordered w-5xs h-xs text-sm text-center border rounded-ms border-dark-grey max-w-xs" /> -->
+                
+                    <div class="">
+                        <p class="text-primary/50 text-sm font-bold">НИКНЕЙМ</p>
+                        <span class="text-sm">rwerrx</span>
                         <input type="text" value="rwerrx" class=" hidden py-1 bg-base-300/40 w-5/6 rounded-sm"
                             placeholder="никнейм">
                     </div>
-                    <div class="space-y-2 ">
-                        <p class="text-neutral-content font-bold">EMAIL</p>
-                        <span>qew@sllslssl.com</span>
+                    <div class="">
+                        <p class="text-primary/50 text-sm font-bold">EMAIL</p>
+                        <span class="text-sm">qew@sllslssl.com</span>
                     </div>
+                    <!-- <button class="btn btn-sm p-1 border border-primary  font-mono">РЕДАКТИРОВАТЬ</button> -->
 
-                </div>
-                <button class="btn btn-xl p-2 border border-primary  font-mono">РЕДАКТИРОВАТЬ</button>
             </section>
             <section class="flex items-center justify-center grow p-6 flex-col">
                 <div>
                     <p class="font-bold text-xl text-secondary-content my-2">ВАШ РЕЙТИНГ</p>
                 </div>
-                <div class="test-config flex justify-center">
+                <div class="test-config flex items-center justify-center">
                     <div class="control-panel join  ">
 
                         <div class="join">
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="operations" value="all" aria-label="all" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="operations" value="+" aria-label="+" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
+                            <input class=" join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="operations" value="-" aria-label="-" />
-                            <input
-                                class=" text-primary-content join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
+                            <input class=" join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="operations" value="//" aria-label="//" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="operations" value="*" aria-label="*" />
 
                         </div>
 
                         <div class="join">
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-neutral/60 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-neutral/60 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="" aria-label="операции" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-neutral/60 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-neutral/60 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="choice" aria-label="тип" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-neutral/60 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-neutral/60 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="choice" aria-label="сложность" />
 
                         </div>
 
                         <div class="join ">
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="options" value="time" aria-label="на время" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="options" value="count" aria-label="на количество" />
                         </div>
                         <div class="join hidden">
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="levels" value="10" aria-label="10" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="levels" value="100" aria-label="100" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="levels" value="1000" aria-label="1000" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="levels" value="10000" aria-label="10000" />
                         </div>
                         <div class="join">
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="time" value="30" aria-label="30s" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="time" value="60" aria-label="60s" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="time" value="90" aria-label="90s" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="time" value="120" aria-label="120s" />
 
                         </div>
                         <div class="join hidden">
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="count" value="5" aria-label="5" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="count" value="10" aria-label="10" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="count" value="15" aria-label="15" />
-                            <input
-                                class="text-primary-content join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
+                            <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="count" value="20" aria-label="20" />
                         </div>
                     </div>
                 </div>
-                <div class="overflow-x-auto w-full my-6">
+                <div class="overflow-x-auto max-h-7xs w-full my-6">
                     <table class="table  bg-base-300 w-full">
                         <thead class="">
                             <tr>
