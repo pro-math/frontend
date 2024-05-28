@@ -1,7 +1,11 @@
 <script setup>
-// import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import AppHeader from './components/AppHeader.vue'
+import AppFooter from './components/AppFooter.vue';
 </script>
 
-<template><h1>Pppp</h1></template>
-
-<style scoped></style>
+<template>
+    <AppHeader />
+    <RouterView />
+    <AppFooter />
+</template>
