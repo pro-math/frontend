@@ -1,4 +1,18 @@
-<script setup></script>
+<script setup>
+import { inject } from 'vue'
+import { generateExample } from '@/utils/generate_example';
+
+
+const _game_session = inject('_game_session')
+let examples_list = [];
+let min_number = 0;
+let max_number = _game_session.difficulty;
+for (let i = 0; i < _game_session.levels_count; i++) {
+  let generated_example = generateExample(_game_session.operations, min_number, max_number);
+  examples_list.push(generated_example)
+}
+// console.log(examples_list)
+</script>
 
 <template>
   <div

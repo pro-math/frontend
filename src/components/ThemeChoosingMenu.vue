@@ -3,7 +3,7 @@
 <template>
   <div class="dropdown mb-72">
     <div tabindex="0" role="button" class="btn btn-sm m-1">
-      Theme
+      Тема
       <svg
         width="12px"
         height="12px"

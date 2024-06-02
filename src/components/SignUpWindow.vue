@@ -1,4 +1,57 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router';
+import axios from 'axios';
+import { validateEmail, validatePassword } from '../utils/validators';
+
+const router = new useRouter();
+const _email = ref('')
+const _username = ref('')
+const _password = ref('')
+const _confirm_password = ref('')
+
+
+
+const signUp = async (evt) => {
+  evt.preventDefault();
+
+  if (!validateEmail(_email.value)) {
+    alert('Неправильно введён email');
+    return;
+  }
+
+  if (!validatePassword(_password)) {
+    alert('Пароль не соответствует требованиям');
+    return;
+  }
+  if (_password.value !== _confirm_password.value) {
+    alert('Пароли не совпадают');
+    return;
+  }
+
+  try {
+    const response = await axios.post('http://127.0.0.1:8000/api/v1/register', {
+      email: _email.value,
+      username: _username.value,
+      password: _password.value
+    });
+
+    if (response.status === 201) {
+      alert('Registration successful');
+      router.push('/profile')
+      document.getElementById('my_modal_4').close();
+      // Закройте модальное окно или перенаправьте пользователя
+    } else {
+      alert('Registration failed');
+    }
+  } catch (error) {
+    console.error('Error during registration:', error);
+    alert('An error occurred during registration');
+    router.push('/profile')
+    document.getElementById('my_modal_4').close();
+  }
+};
+</script>
 
 <template>
   <dialog id="my_modal_4" class="modal">
@@ -7,7 +60,7 @@
         <button class="btn btn-sm btn-circle btn-ghost absolute right-2">✕</button>
       </form>
       <h3 class="font-bold text-lg btn-sm m-2">Регистрация</h3>
-      <form class="space-y-4 flex justify-center flex-col">
+      <form class="space-y-4 flex justify-center flex-col" @submit="signUp">
         <label class="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +75,7 @@
               d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
             />
           </svg>
-          <input type="text" class="grow" placeholder="Email" />
+          <input type="text" class="grow" placeholder="Email" v-model="_email"/>
         </label>
         <label class="input input-bordered flex items-center gap-2">
           <svg
@@ -35,7 +88,7 @@
               d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z"
             />
           </svg>
-          <input type="text" class="grow" placeholder="Никнейм" />
+          <input type="text" class="grow" placeholder="Никнейм" v-model="_username" />
         </label>
         <label class="input input-bordered flex items-center gap-2">
           <svg
@@ -50,7 +103,7 @@
               clip-rule="evenodd"
             />
           </svg>
-          <input type="password" value="" placeholder="Пароль" class="grow"/>
+          <input type="password" value="" placeholder="Пароль" class="grow" v-model="_password" min=5/>
         </label>
         <label class="input input-bordered flex items-center gap-2">
           <svg
@@ -70,6 +123,7 @@
             value=""
             placeholder="Повторите пароль"
             class="grow"
+            v-model="_confirm_password"
           />
         </label>
         <button class="btn btn-md bordered text-xl">войти</button>

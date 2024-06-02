@@ -1,4 +1,38 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router';
+import axios from 'axios'
+
+const router = new useRouter();
+const _email = ref('')
+const _username = ref('')
+const _password = ref('')
+const _remember_me = ref(false)
+
+
+const signIn = async (evt) => {
+  evt.preventDefault();
+  try {
+    const response = await axios.post('http://127.0.0.1:8000/api/v1/authorisation', {
+      email: _email.value,
+      username: _username.value,
+      password: _password.value
+    });
+
+    if (response.status === 200) {
+      alert('Authorisation successful');
+      router.push('/profile')
+      document.getElementById('my_modal_3').close();
+      // Закройте модальное окно или перенаправьте пользователя
+    } else {
+      alert('Authorisation failed');
+    }
+  } catch (error) {
+    console.error('Error during authorisation:', error);
+    alert('An error occurred during authorisation');
+  }
+};
+</script>
 
 <template>
   <dialog id="my_modal_3" class="modal">
@@ -7,7 +41,7 @@
         <button class="btn btn-sm btn-circle btn-ghost absolute right-2">✕</button>
       </form>
       <h3 class="font-bold text-lg btn-sm m-2">Вход</h3>
-      <form class="space-y-4 flex justify-center flex-col">
+      <form class="space-y-4 flex justify-center flex-col" @submit="signIn">
         <label class="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +56,7 @@
               d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
             />
           </svg>
-          <input type="text" class="grow" placeholder="Email" />
+          <input type="text" class="grow" placeholder="Email" v-modal="_email"/>
         </label>
         <label class="input input-bordered flex items-center gap-2">
           <svg
@@ -35,7 +69,7 @@
               d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z"
             />
           </svg>
-          <input type="text" class="grow" placeholder="Никнейм" />
+          <input type="text" class="grow" placeholder="Никнейм" v-model="_username"/>
         </label>
         <label class="input input-bordered flex items-center gap-2">
           <svg
@@ -50,12 +84,12 @@
               clip-rule="evenodd"
             />
           </svg>
-          <input type="password" placeholder="Пароль" class="grow" value="" />
+          <input type="password" placeholder="Пароль" class="grow" value="" v-model="_password"/>
         </label>
         <div class="form-control">
           <label class="label cursor-pointer">
             <span class="label-text">ЗАПОМНИТЬ МЕНЯ</span>
-            <input type="checkbox" checked="checked" class="checkbox" />
+            <input type="checkbox" checked="checked" class="checkbox" v-model="_remember_me"/>
           </label>
         </div>
         <button class="btn btn-md bordered text-xl">войти</button>
