@@ -1,16 +1,60 @@
 <script setup>
-import { inject } from 'vue'
-import { generateExample } from '@/utils/generate_example';
-
+import { inject, onMounted } from 'vue'
+import { generateExample } from '@/utils/generate_example'
+import { createRange } from '@/utils/create_range'
 
 const _game_session = inject('_game_session')
-let examples_list = [];
-let min_number = 0;
-let max_number = _game_session.difficulty;
-for (let i = 0; i < _game_session.levels_count; i++) {
-  let generated_example = generateExample(_game_session.operations, min_number, max_number);
-  examples_list.push(generated_example)
+
+let examples_list = []
+// console.log(_game_session.difficulty.toString().length - 1)
+const registerExamplesListGeneration = inject('registerExamplesListGeneration', null)
+
+function examplesListGeneration() {
+  let magnitude = _game_session.difficulty.toString().length
+  // console.log(magnitude)
+
+  let { min_number, max_number } = createRange(magnitude)
+  console.log(min_number, max_number)
+
+  if (_game_session.time != 0) {
+    if (_game_session.time == 30) {
+      for (let i = 0; i < 70; i++) {
+        let generated_example = generateExample(_game_session.operations, min_number, max_number)
+        examples_list.push(generated_example)
+      }
+    } else if (_game_session.time == 60) {
+      for (let i = 0; i < 100; i++) {
+        let generated_example = generateExample(_game_session.operations, min_number, max_number)
+        examples_list.push(generated_example)
+      }
+    } else if (_game_session.time == 90) {
+      for (let i = 0; i < 130; i++) {
+        let generated_example = generateExample(_game_session.operations, min_number, max_number)
+        examples_list.push(generated_example)
+      }
+    } else if (_game_session.time == 120) {
+      for (let i = 0; i < 160; i++) {
+        let generated_example = generateExample(_game_session.operations, min_number, max_number)
+        examples_list.push(generated_example)
+      }
+    }
+  } else if (_game_session.levels_count != 0) {
+    for (let i = 0; i < _game_session.levels_count; i++) {
+      let generated_example = generateExample(_game_session.operations, min_number, max_number)
+      examples_list.push(generated_example)
+    }
+  }
+  console.log(examples_list)
 }
+
+onMounted(() => {
+  if (registerExamplesListGeneration) {
+    registerExamplesListGeneration(examplesListGeneration)
+  } else {
+    console.error('Функция registerGrandChildFunction не найдена')
+  }
+})
+
 // console.log(examples_list)
 </script>
 
