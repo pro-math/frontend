@@ -3886,6 +3886,15 @@ html{
   outline-offset: 2px;
 }
 
+:where(.menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)):not(summary, .active, .btn).focus, :where(.menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)):not(summary, .active, .btn):focus, :where(.menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)):is(summary):not(.active, .btn):focus-visible, :where(.menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(summary, .active, .btn).focus, :where(.menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(summary, .active, .btn):focus, :where(.menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):is(summary):not(.active, .btn):focus-visible{
+  cursor: pointer;
+  background-color: var(--fallback-bc,oklch(var(--bc)/0.1));
+  --tw-text-opacity: 1;
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .mockup-browser .mockup-browser-toolbar .input{
   position: relative;
   margin-left: auto;
@@ -4360,6 +4369,22 @@ html{
   height: 2rem;
 }
 
+.h-3xs{
+  height: 3rem;
+}
+
+.h-5xs{
+  height: 5rem;
+}
+
+.h-7xs{
+  height: 20rem;
+}
+
+.h-3{
+  height: 15px;
+}
+
 .max-h-7xs{
   max-height: 20rem;
 }
@@ -4374,6 +4399,10 @@ html{
 
 .w-3\/6{
   width: 50%;
+}
+
+.w-3xs{
+  width: 3rem;
 }
 
 .w-4{
@@ -4400,8 +4429,8 @@ html{
   width: 2rem;
 }
 
-.w-3xs{
-  width: 3rem;
+.w-4\/6{
+  width: 66.666667%;
 }
 
 .max-w-xs{
@@ -4470,6 +4499,12 @@ html{
   margin-left: calc(10px * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-x-3xs > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(3rem * var(--tw-space-x-reverse));
+  margin-left: calc(3rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .space-x-6 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(30px * var(--tw-space-x-reverse));
@@ -4480,12 +4515,6 @@ html{
   --tw-space-y-reverse: 0;
   margin-top: calc(20px * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(20px * var(--tw-space-y-reverse));
-}
-
-.space-x-3xs > :not([hidden]) ~ :not([hidden]){
-  --tw-space-x-reverse: 0;
-  margin-right: calc(3rem * var(--tw-space-x-reverse));
-  margin-left: calc(3rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .overflow-x-auto{
@@ -4567,10 +4596,6 @@ html{
   background-color: var(--fallback-s,oklch(var(--s)/0.1));
 }
 
-.bg-secondary\/60{
-  background-color: var(--fallback-s,oklch(var(--s)/0.6));
-}
-
 .bg-opacity-0{
   --tw-bg-opacity: 0;
 }
@@ -4602,6 +4627,11 @@ html{
 .py-1{
   padding-top: 2px;
   padding-bottom: 2px;
+}
+
+.py-4{
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .text-center{
@@ -4656,9 +4686,19 @@ html{
   color: rgb(2 6 23 / var(--tw-text-opacity));
 }
 
+.text-dark-green{
+  --tw-text-opacity: 1;
+  color: rgb(4 120 87 / var(--tw-text-opacity));
+}
+
 .text-dark-grey{
   --tw-text-opacity: 1;
   color: rgb(51 65 85 / var(--tw-text-opacity));
+}
+
+.text-dark-red{
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
 }
 
 .text-neutral-content{
@@ -4681,16 +4721,6 @@ html{
 .text-secondary-content{
   --tw-text-opacity: 1;
   color: var(--fallback-sc,oklch(var(--sc)/var(--tw-text-opacity)));
-}
-
-.text-dark-green{
-  --tw-text-opacity: 1;
-  color: rgb(4 120 87 / var(--tw-text-opacity));
-}
-
-.text-dark-red{
-  --tw-text-opacity: 1;
-  color: rgb(153 27 27 / var(--tw-text-opacity));
 }
 
 .opacity-60{
@@ -4798,10 +4828,6 @@ html{
   border-color: rgb(51 65 85 / var(--tw-border-opacity));
 }
 
-.hover\:bg-grey\/30:hover{
-  background-color: rgb(148 163 184 / 0.3);
-}
-
 .hover\:bg-grey\/0:hover{
   background-color: rgb(148 163 184 / 0);
 }
@@ -4810,9 +4836,33 @@ html{
   background-image: none;
 }
 
+.focus\:border:focus{
+  border-width: 1px;
+}
+
 .focus\:border-primary:focus{
   --tw-border-opacity: 1;
   border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
+}
+
+.focus\:border-dark-red:focus{
+  --tw-border-opacity: 1;
+  border-color: rgb(153 27 27 / var(--tw-border-opacity));
+}
+
+.focus\:bg-dark-red:focus{
+  --tw-bg-opacity: 1;
+  background-color: rgb(153 27 27 / var(--tw-bg-opacity));
+}
+
+.focus\:outline-none:focus{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus-visible\:bg-dark-red:focus-visible{
+  --tw-bg-opacity: 1;
+  background-color: rgb(153 27 27 / var(--tw-bg-opacity));
 }
 
 @media not all and (min-width: 640px){
