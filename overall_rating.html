@@ -22,7 +22,7 @@
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
 </head>
 
-<body class="font-body bg-primary/50 flex flex-col justify-between ">
+<body class="font-body flex flex-col justify-between ">
 
     <header class="h-5xs">
         <nav class="flex justify-between p-3">
@@ -184,11 +184,92 @@
     </header>
     <main>
         <div class="flex container items-center justify-center mx-auto w-5/6 flex-col my-6 space-x-6">
-            
-            <section class="flex items-center justify-center grow p-6 flex-col">
+            <section class="">
                 <div>
-                    <p class="text-3xl pr-6 text-center text-secondary-content my-3">ОБЩИЙ РЕЙТИНГ</p>
+                    <p class="text-3xl pr-6 text-center text-base-content my-3">ОБЩИЙ РЕЙТИНГ</p>
                 </div>
+                <div class="test-config flex justify-center">
+                    <div class="control-panel space-x-6 flex">
+
+                        <div class="join">
+                            <input class="join-item btn btn-sm bg-primary after:text-primary" type="radio" name=""
+                                aria-label="операции" disabled />
+                            <div class="join">
+                                <input class="join-item btn btn-sm bg-primary/20" type="checkbox" name="operations"
+                                    value="+" aria-label="+" checked="checked" />
+                                <input class=" join-item btn btn-sm bg-primary/20" type="checkbox" name="operations"
+                                    value="-" aria-label="-" />
+                                <input class=" join-item btn btn-sm bg-primary/20" type="checkbox" name="operations"
+                                    value="//" aria-label="//" />
+                                <input class="join-item btn btn-sm bg-primary/20" type="checkbox" name="operations"
+                                    value="*" aria-label="*" />
+
+                            </div>
+
+                        </div>
+
+                        <div class="join">
+                            <input class="join-item btn btn-sm bg-primary after:text-primary border-primary"
+                                type="radio" name="" aria-label="сложность" disabled />
+
+                            <div class="join">
+                                <input class="join-item btn btn-sm bg-primary/20" type="radio" name="levels"
+                                    value="1000" aria-label="1000" />
+                                <input class="join-item btn btn-sm bg-primary/20" type="radio" name="levels" value="100"
+                                    aria-label="100" />
+                                <input class="join-item btn btn-sm bg-primary/20" type="radio" name="levels" value="10"
+                                    aria-label="10" checked="checked" />
+                            </div>
+                        </div>
+                        <div class="join ">
+
+                            <div class="join">
+                                <input class="join-item btn btn-sm bg-primary/10" type="radio" name="options"
+                                    value="time" aria-label="на время" />
+                                <input class="join-item btn btn-sm bg-primary/10" type="radio" name="options"
+                                    value="count" aria-label="на количество" checked="checked" />
+                            </div>
+
+                        </div>
+                        <div>
+                            <div class="join hidden">
+                                <input class="join-item btn btn-sm bg-primary after:text-primary border-primary"
+                                    type="radio" name="options" aria-label="время решения" disabled />
+                                <div class="join">
+                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="time"
+                                        value="15s" aria-label="15" />
+                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="time"
+                                        value="30s" aria-label="30" />
+                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="time"
+                                        value="60s" aria-label="60" />
+                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="time"
+                                        value="90s" aria-label="90" />
+                                </div>
+
+                            </div>
+                            <div class="join">
+                                <input class="join-item btn btn-sm bg-primary after:text-primary border-primary"
+                                    type="radio" name="options" aria-label="количество примеров" disabled />
+                                <div class="join">
+                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="count"
+                                        value="10" aria-label="10" />
+                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="count"
+                                        value="15" aria-label="15" />
+                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="count"
+                                        value="20" aria-label="20" />
+                                    <input class="join-item btn btn-sm bg-primary/10" checked="checked" type="radio"
+                                        name="count" value="30" aria-label="30" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+            <!-- <section class="flex items-center justify-center grow p-6 flex-col">
+                
                 <div class="test-config flex items-center justify-center">
                     <div class="control-panel join">
                         <div class="join">
@@ -253,7 +334,8 @@
                                 type="radio" name="count" value="20" aria-label="20" />
                         </div>
                     </div>
-                </div>
+                </div> -->
+            <section>
                 <div class=" w-full my-6">
                     <div id='recipients'
                         class="w-full p-4 mt-6 lg:mt-0 rounded shadow bg-neutral text-neutral-content border border-primary">
@@ -279,6 +361,8 @@
                     </div>
                 </div>
             </section>
+
+
     </main>
 
     <footer class="footer items-center p-4 bg-neutral text-neutral-content">

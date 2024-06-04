@@ -70,7 +70,8 @@ module.exports = {
       '6': '30px',
     },
     fontFamily: {
-      body: ["Montserrat"]
+      body: ["Montserrat"],
+      timer: ["Orbitron"],
     },
     borderRadius: {
       'full': '50%',

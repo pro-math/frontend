@@ -175,26 +175,24 @@
                 <div class="control-panel space-x-6 flex">
 
                     <div class="join">
-                        <input class="join-item btn btn-sm bg-primary after:text-primary" type="radio" name=""
+                        <input class="join-item btn btn-sm bg-primary after:text-primary" type="checkbox" name=""
                             aria-label="операции" disabled />
                         <div class="join">
-                            <input class="join-item btn btn-sm bg-primary/20" type="radio" name="operations" value="+"
-                                aria-label="+" />
-                            <input class=" join-item btn btn-sm bg-primary/20" type="radio" name="operations" value="-"
-                                aria-label="-" />
-                            <input class=" join-item btn btn-sm bg-primary/20" type="radio" name="operations" value="//"
-                                aria-label="//" />
-                            <input class="join-item btn btn-sm bg-primary/20" type="radio" name="operations" value="*"
-                                aria-label="*" />
-                            <input class="join-item btn btn-sm bg-primary/20" checked="checked" type="radio"
-                                name="operations" value="all" aria-label="all" />
+                            <input class="join-item btn btn-sm bg-primary/20" type="checkbox" name="operations"
+                                value="+" aria-label="+" checked="checked" />
+                            <input class=" join-item btn btn-sm bg-primary/20" type="checkbox" name="operations"
+                                value="-" aria-label="-" />
+                            <input class=" join-item btn btn-sm bg-primary/20" type="checkbox" name="operations"
+                                value="//" aria-label="//" />
+                            <input class="join-item btn btn-sm bg-primary/20" type="checkbox" name="operations"
+                                value="*" aria-label="*" />
                         </div>
 
                     </div>
 
                     <div class="join">
-                        <input class="join-item btn btn-sm bg-primary after:text-primary border-primary"
-                        type="radio" name="" aria-label="сложность" disabled />
+                        <input class="join-item btn btn-sm bg-primary after:text-primary border-primary" type="radio"
+                            name="" aria-label="сложность" disabled />
 
                         <div class="join">
                             <input class="join-item btn btn-sm bg-primary/20" type="radio" name="levels" value="1000"
@@ -208,15 +206,15 @@
                     <div class="join ">
 
                         <div class="join">
-                            <input class="join-item btn btn-sm bg-neutral text-primary" type="radio" name="options"
-                                value="time" aria-label="на время" />
-                            <input class="join-item btn btn-sm bg-neutral text-primary" type="radio" name="options"
-                                value="count" aria-label="на количество" checked="checked" />
+                            <input class="join-item btn btn-sm bg-primary/10" type="radio" name="options" value="time"
+                                aria-label="на время" />
+                            <input class="join-item btn btn-sm bg-primary/10" type="radio" name="options" value="count"
+                                aria-label="на количество" checked="checked" />
                         </div>
 
                     </div>
                     <div>
-                        <div class="join ">
+                        <div class="join hidden">
                             <input class="join-item btn btn-sm bg-primary after:text-primary border-primary"
                                 type="radio" name="options" aria-label="время решения" disabled />
                             <div class="join">
@@ -231,7 +229,7 @@
                             </div>
 
                         </div>
-                        <div class="join hidden">
+                        <div class="join">
                             <input class="join-item btn btn-sm bg-primary after:text-primary border-primary"
                                 type="radio" name="options" aria-label="количество примеров" disabled />
                             <div class="join">
@@ -255,12 +253,21 @@
         <!-- контейнер с примерами -->
         <section class="flex flex-col items-center h-full my-6 p-3 rounded-md border bg-base-300 w-5/6 ">
             <!-- таймер или обратный отсчет -->
-            <div class="flex justify-end items-center w-full text-3xl h-5xs">
+            <div class="flex justify-center items-center w-1/6 text-3xl h-5xs rounded-box border border-primary/25">
                 <span
-                    class="countdown bodrered text-3xl max-sm:text-xl rounded-full bg-primary  text-center p-4 border-2 border-drak-grey  text-dark-grey mx-2">
+                    class="countdown font-light text-primary/80 text-5xl  font-timer ">
                     <span style="--value:30;"></span>
                 </span>
             </div>
+            
+                <!-- <div class="flex flex-col items-center p-2 bg-neutral rounded-box text-neutral-content">
+                    <span class="countdown font-mono text-5xl">
+                        <span style="--value:18;"></span>
+                    </span>
+                    sec
+                </div> -->
+            
+            
             <!-- сами примеры -->
             <div
                 class="m-3 flex items-center justify-center w-4/6 h-7xs  border border-dark-grey  p-6 rounded-md bg-neutral/50 ">
@@ -274,7 +281,7 @@
                             class="btn hover:bg-none bodrered max-sm:text-2xl btn-ghost btn-6xl hover:bg-grey/0 text-5xl">
                             5 + 5 =</p>
                         <input type="text" placeholder="..."
-                            class="join-item input input-primary outline-none w-1/4 input-6xl border-2 border-primary bg-opacity-0 text-black max-sm:input-3xl max-sm:text-sm text-3xl focus:border-primary ">
+                            class="join-item input input-primary outline-none w-1/4 input-6xl border-2 border-primary bg-opacity-0 active::outline-none max-sm:input-3xl max-sm:text-sm text-3xl focus:border-primary ">
                         <!-- <kbd class="bodrered join-item btn  btn-xl bg-primary kbd-lg">Enter</kbd>               -->
                     </div>
                     <p class="text-4xl max-sm:text-xl text-neutral/70"> 3 + 5 =</p>
