@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["game.html", "profile.html"], 
+  content: ["game.html", "profile.html", "overall_rating.html"], 
   daisyui: {
     themes: [
       "light",

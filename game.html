@@ -157,11 +157,11 @@
                         </dialog>
                     </div>
                     <!-- аватарка -->
-                    <div class="avatar">
+                    <!-- <div class="avatar">
                         <div class="w-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </nav>
@@ -172,68 +172,80 @@
         <section class="">
 
             <div class="test-config flex justify-center">
-                <div class="control-panel join">
+                <div class="control-panel space-x-6 flex">
 
                     <div class="join">
-                        <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey "
-                            type="radio" name="operations" value="all" aria-label="all" />
-                        <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="operations" value="+" aria-label="+" />
-                        <input class=" join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="operations" value="-" aria-label="-" />
-                        <input class=" join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="operations" value="//" aria-label="//" />
-                        <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="operations" value="*" aria-label="*" />
+                        <input class="join-item btn btn-sm bg-primary after:text-primary" type="radio" name=""
+                            aria-label="операции" disabled />
+                        <div class="join">
+                            <input class="join-item btn btn-sm bg-primary/20" type="radio" name="operations" value="+"
+                                aria-label="+" />
+                            <input class=" join-item btn btn-sm bg-primary/20" type="radio" name="operations" value="-"
+                                aria-label="-" />
+                            <input class=" join-item btn btn-sm bg-primary/20" type="radio" name="operations" value="//"
+                                aria-label="//" />
+                            <input class="join-item btn btn-sm bg-primary/20" type="radio" name="operations" value="*"
+                                aria-label="*" />
+                            <input class="join-item btn btn-sm bg-primary/20" checked="checked" type="radio"
+                                name="operations" value="all" aria-label="all" />
+                        </div>
 
                     </div>
 
                     <div class="join">
-                        <input class="join-item btn btn-sm bg-neutral/60 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="" aria-label="операции" />
-                        <input class="join-item btn btn-sm bg-neutral/60 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="choice" aria-label="тип" />
-                        <input class="join-item btn btn-sm bg-neutral/60 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="choice" aria-label="сложность" />
+                        <input class="join-item btn btn-sm bg-primary after:text-primary border-primary"
+                        type="radio" name="" aria-label="сложность" disabled />
 
+                        <div class="join">
+                            <input class="join-item btn btn-sm bg-primary/20" type="radio" name="levels" value="1000"
+                                aria-label="1000" />
+                            <input class="join-item btn btn-sm bg-primary/20" type="radio" name="levels" value="100"
+                                aria-label="100" />
+                            <input class="join-item btn btn-sm bg-primary/20" type="radio" name="levels" value="10"
+                                aria-label="10" checked="checked" />
+                        </div>
                     </div>
-
                     <div class="join ">
-                        <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="options" value="time" aria-label="на время" />
-                        <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="options" value="count" aria-label="на количество" />
-                    </div>
-                    <div class="join hidden">
-                        <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="levels" value="10" aria-label="10" />
-                        <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="levels" value="100" aria-label="100" />
-                        <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="levels" value="1000" aria-label="1000" />
-                        <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="levels" value="10000" aria-label="10000" />
-                    </div>
-                    <div class="join">
-                        <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="time" value="30" aria-label="30s" />
-                        <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="time" value="60" aria-label="60s" />
-                        <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="time" value="90" aria-label="90s" />
-                        <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="time" value="120" aria-label="120s" />
+
+                        <div class="join">
+                            <input class="join-item btn btn-sm bg-neutral text-primary" type="radio" name="options"
+                                value="time" aria-label="на время" />
+                            <input class="join-item btn btn-sm bg-neutral text-primary" type="radio" name="options"
+                                value="count" aria-label="на количество" checked="checked" />
+                        </div>
 
                     </div>
-                    <div class="join hidden">
-                        <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="count" value="5" aria-label="5" />
-                        <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="count" value="10" aria-label="10" />
-                        <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="count" value="15" aria-label="15" />
-                        <input class="join-item btn btn-sm bg-secondary/10 hover:border-dark-grey border-dark-grey"
-                            type="radio" name="count" value="20" aria-label="20" />
+                    <div>
+                        <div class="join ">
+                            <input class="join-item btn btn-sm bg-primary after:text-primary border-primary"
+                                type="radio" name="options" aria-label="время решения" disabled />
+                            <div class="join">
+                                <input class="join-item btn btn-sm bg-primary/10" type="radio" name="time" value="15s"
+                                    aria-label="15" />
+                                <input class="join-item btn btn-sm bg-primary/10" type="radio" name="time" value="30s"
+                                    aria-label="30" />
+                                <input class="join-item btn btn-sm bg-primary/10" type="radio" name="time" value="60s"
+                                    aria-label="60" />
+                                <input class="join-item btn btn-sm bg-primary/10" type="radio" name="time" value="90s"
+                                    aria-label="90" />
+                            </div>
+
+                        </div>
+                        <div class="join hidden">
+                            <input class="join-item btn btn-sm bg-primary after:text-primary border-primary"
+                                type="radio" name="options" aria-label="количество примеров" disabled />
+                            <div class="join">
+                                <input class="join-item btn btn-sm bg-primary/10" type="radio" name="count" value="10"
+                                    aria-label="10" />
+                                <input class="join-item btn btn-sm bg-primary/10" type="radio" name="count" value="15"
+                                    aria-label="15" />
+                                <input class="join-item btn btn-sm bg-primary/10" type="radio" name="count" value="20"
+                                    aria-label="20" />
+                                <input class="join-item btn btn-sm bg-primary/10" checked="checked" type="radio"
+                                    name="count" value="30" aria-label="30" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -250,7 +262,8 @@
                 </span>
             </div>
             <!-- сами примеры -->
-            <div class="m-3 flex items-center justify-center w-4/6 h-7xs  border border-dark-grey  p-6 rounded-md bg-neutral/50 ">
+            <div
+                class="m-3 flex items-center justify-center w-4/6 h-7xs  border border-dark-grey  p-6 rounded-md bg-neutral/50 ">
                 <p class="text-5xl text-center hidden cursor-pointer ">
                     НАЧАТЬ
                 </p>

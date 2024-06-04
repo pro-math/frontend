@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="./src/output.css" rel="stylesheet">
     <title>Document</title>
@@ -22,6 +23,7 @@
 </head>
 
 <body class="font-body bg-primary/50 flex flex-col justify-between ">
+
     <header class="h-5xs">
         <nav class="flex justify-between p-3">
             <div class="logo">
@@ -181,47 +183,17 @@
 
     </header>
     <main>
-
         <div class="flex container items-center justify-center mx-auto w-5/6 flex-col my-6 space-x-6">
-            <!-- секция с личными данными и аватаркой -->
-
-            <section
-                class="flex items-center bg-base-300 border-2 rounded rounded-box space-x-3xs border-black px-4 py-2">
-
-                <!-- ава -->
-                <!-- <div class="avatar">
-                    <div class="border-2 bg-primary/50 border-black  w-3xs rounded-full">
-                        <img src="./img/avatar.png">
-                    </div>
-
-                </div> -->
-
-                <!-- <input type="file"
-                    class="file-input hidden file-input-bordered w-5xs h-xs text-sm text-center border rounded-ms border-dark-grey max-w-xs" /> -->
-
-                <div class="">
-                    <p class="text-primary/50 text-sm font-bold">НИКНЕЙМ</p>
-                    <span class="text-sm">rwerrx</span>
-                    <input type="text" value="rwerrx" class=" hidden py-1 bg-base-300/40 w-5/6 rounded-sm"
-                        placeholder="никнейм">
-                </div>
-                <div class="">
-                    <p class="text-primary/50 text-sm font-bold">EMAIL</p>
-                    <span class="text-sm">qew@sllslssl.com</span>
-                </div>
-                <!-- <button class="btn btn-sm p-1 border border-primary  font-mono">РЕДАКТИРОВАТЬ</button> -->
-
-            </section>
+            
             <section class="flex items-center justify-center grow p-6 flex-col">
                 <div>
-                    <p class="text-3xl pr-6 text-center text-secondary-content my-3">ВАШ РЕЙТИНГ</p>
+                    <p class="text-3xl pr-6 text-center text-secondary-content my-3">ОБЩИЙ РЕЙТИНГ</p>
                 </div>
                 <div class="test-config flex items-center justify-center">
-                    <div class="control-panel join  ">
-
+                    <div class="control-panel join">
                         <div class="join">
-                            <input class="join-item btn btn-sm bg-primary/60"
-                                type="radio" name="operations" value="all" aria-label="all" checked="checked"/>
+                            <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
+                                type="radio" name="operations" value="all" aria-label="all" />
                             <input class="join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
                                 type="radio" name="operations" value="+" aria-label="+" />
                             <input class=" join-item btn btn-sm bg-primary/70 hover:border-dark-grey border-dark-grey"
@@ -283,14 +255,19 @@
                     </div>
                 </div>
                 <div class=" w-full my-6">
-                    <div id='recipients' class="w-full p-4 mt-6 lg:mt-0 rounded shadow bg-neutral text-neutral-content border border-primary">
+                    <div id='recipients'
+                        class="w-full p-4 mt-6 lg:mt-0 rounded shadow bg-neutral text-neutral-content border border-primary">
 
 
-                        <table  id="resultTable" class="stripe hover py-4 w-full">
+                        <table id="owerallTable" class="stripe hover py-4 w-full">
                             <thead>
                                 <tr>
+                                    <th data-priority="1" class="text-primary text-sm">Никнейм</th>
+
                                     <th data-priority="1" class="text-primary text-sm">Процент правильно решенных</th>
-                                    <th data-priority="2" class="text-primary text-sm">Количество правильно решенных</th>
+
+                                    <th data-priority="2" class="text-primary text-sm">Количество правильно решенных
+                                    </th>
                                     <th data-priority="3" class="text-primary text-sm">Затраченное время</th>
                                     <th data-priority="4" class="text-primary text-sm">Операция</th>
                                     <!-- <th data-priority="5" class="text-primary text-sm"></th> -->
@@ -303,6 +280,7 @@
                 </div>
             </section>
     </main>
+
     <footer class="footer items-center p-4 bg-neutral text-neutral-content">
         <aside class="items-center grid-flow-col">
             <svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
@@ -334,6 +312,9 @@
     </footer>
 
 
+
+
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <!--Datatables -->
@@ -344,7 +325,7 @@
     <script src="https://cdn.datatables.net/plug-ins/1.10.21/sorting/datetime-moment.js"></script>
     <script>
         $(document).ready(function () {
-            $('#workersTable').DataTable({
+            $('#owerallTable').DataTable({
                 "language": {
                     "url": "./json/russian.json" // Обновленный локальный путь
                 }
