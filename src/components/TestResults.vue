@@ -7,7 +7,8 @@ const _game_session = inject('_game_session')
   <div class="flex flex-col w-full lg:flex-row m-6">
     <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">
       <span>Процент</span>
-      <p class="text-2xl font-bold">70%</p>
+      <p class="text-2xl font-bold" v-if="_game_session.correct_answers != 0">{{ Math.round(_game_session.correct_answers / (_game_session.correct_answers + _game_session.wrong_answers) * 100) }}%</p>
+      <p class="text-2xl font-bold" v-else>0%</p>
     </div>
     <div class="divider lg:divider-horizontal"></div>
     <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">

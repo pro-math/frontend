@@ -1,20 +1,37 @@
 <script setup>
-import { inject, onMounted } from 'vue'
+import { inject, onMounted, reactive, ref } from 'vue'
 import { generateExample } from '@/utils/generate_example'
 import { createRange } from '@/utils/create_range'
 
-const _game_session = inject('_game_session')
 
-let examples_list = []
-// console.log(_game_session.difficulty.toString().length - 1)
 const registerExamplesListGeneration = inject('registerExamplesListGeneration', null)
 
-function examplesListGeneration() {
+const _game_session = inject('_game_session') //инъекция объекта
+
+const _current_example = reactive({}) //текущий пример
+
+let pointer = 0 //счётчик текущего примера
+
+const _previous_example = reactive({}) //предыдущий пример
+
+const _next_example = reactive({}) //следующий пример
+
+const _answer_input = ref() //DOM-элемент поля ввода
+
+const startGame = inject('startGame')
+
+// const _game_finished = inject('_game_finished')
+
+const _show_start_button = ref(true)
+
+let examples_list = [] // список примеров
+
+
+function examplesListGeneration() { //генерация списка примеров
+  registerExamplesListGeneration
   let magnitude = _game_session.difficulty.toString().length
-  // console.log(magnitude)
 
   let { min_number, max_number } = createRange(magnitude)
-  console.log(min_number, max_number)
 
   if (_game_session.time != 0) {
     if (_game_session.time == 30) {
@@ -44,38 +61,108 @@ function examplesListGeneration() {
       examples_list.push(generated_example)
     }
   }
-  console.log(examples_list)
+}
+
+function changeExample() { //смена примера и обновление статистики игровой сессии
+
+  if (_current_example.answer.toString() == _answer_input.value.toString()) {
+    _game_session.correct_answers++
+  } else {
+    _game_session.wrong_answers++
+  }
+  _answer_input.value = ''
+
+  if (pointer == examples_list.length - 2) {
+    pointer++
+    _previous_example.example = examples_list[pointer - 1].example
+    _previous_example.answer = examples_list[pointer - 1].answer
+
+    _current_example.example = examples_list[pointer].example
+    _current_example.answer = examples_list[pointer].answer
+
+    _next_example.example = ''
+    _next_example.answer = ''
+  
+  } else {
+    pointer++
+
+    _previous_example.example = examples_list[pointer - 1].example
+    _previous_example.answer = examples_list[pointer - 1].answer
+
+    _current_example.example = examples_list[pointer].example
+    _current_example.answer = examples_list[pointer].answer
+
+    _next_example.example = examples_list[pointer + 1].example
+    _next_example.answer = examples_list[pointer + 1].answer
+  }
+}
+
+function showTestHandler() { // появление игрового поля
+  _show_start_button.value = !_show_start_button.value
+
+  startGame()
+
+  pointer = 0
+
+  _previous_example.example = ''
+  _previous_example.answer = ''
+
+  _current_example.example = examples_list[pointer].example
+  _current_example.answer = examples_list[pointer].answer
+
+  _next_example.example = examples_list[pointer + 1].example
+  _next_example.answer = examples_list[pointer + 1].answer
 }
 
 onMounted(() => {
   if (registerExamplesListGeneration) {
     registerExamplesListGeneration(examplesListGeneration)
   } else {
-    console.error('Функция registerGrandChildFunction не найдена')
+    console.error('Функция registerExamplesListGeneration не найдена')
   }
 })
 
-// console.log(examples_list)
+
 </script>
 
 <template>
   <div
-    class="m-3 h-full w-3/6 flex flex-col border border-dark-grey items-center justify-center p-6 rounded-lg bg-neutral/50 space-y-4"
+    class="m-3 flex items-center justify-center w-4/6 h-7xs border border-dark-grey p-6 rounded-md bg-neutral/50"
   >
-    <p class="text-4xl max-sm:text-xl text-neutral/80">2 + 3 = 5</p>
-    <div class="join flex justify-center items-center space-x-2">
-      <p
-        class="btn hover:bg-none join-item bodrered max-sm:text-2xl btn-ghost btn-6xl hover:bg-grey/30 text-5xl"
-      >
-        2 + 2 =
+    <p
+      class="text-5xl text-center cursor-pointer"
+      v-if="_show_start_button"
+      @click="showTestHandler"
+    >
+      НАЧАТЬ
+    </p>
+    <div class="flex flex-col items-center justify-center space-y-4" v-if="!_show_start_button">
+      <p class="text-4xl max-sm:text-xl text-neutral/80" v-if="_previous_example.example">
+        {{ _previous_example.example }} = {{ _previous_example.answer }}
       </p>
-      <input
-        type="text"
-        placeholder="..."
-        class="join-item input input-primary outline-none w-1/4 input-6xl border-2 border-primary bg-opacity-0 text-black max-sm:input-3xl max-sm:text-sm text-3xl focus:border-primary"
-      />
+      <p class="text-4xl max-sm:text-xl text-neutral/80" v-else>
+        <br />
+      </p>
+      <div class="flex justify-center items-center space-x-2">
+        <p
+          class="btn hover:bg-none bodrered max-sm:text-2xl btn-ghost btn-6xl hover:bg-grey/0 text-5xl"
+        >
+          {{ _current_example.example }} =
+        </p>
+        <input
+          type="text"
+          placeholder="..."
+          class="join-item input input-primary outline-none w-1/4 input-6xl border-2 border-primary bg-opacity-0 text-black max-sm:input-3xl max-sm:text-sm text-3xl focus:border-primary"
+          v-model="_answer_input"
+          @keyup.enter="changeExample"
+        />
+        <!-- <kbd class="bodrered join-item btn  btn-xl bg-primary kbd-lg">Enter</kbd>               -->
+      </div>
+      <p class="text-4xl max-sm:text-xl text-neutral/70" v-if="_next_example.example">
+        {{ _next_example.example }} =
+      </p>
+      <p class="text-4xl max-sm:text-xl text-neutral/70" v-else><br /></p>
     </div>
-    <p class="text-4xl max-sm:text-xl text-neutral/70">3 + 5 =</p>
   </div>
 </template>
 

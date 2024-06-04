@@ -1,19 +1,20 @@
 <script setup>
 import MathPanelContainer from './MathPanelContainer.vue'
 import MathNavigationBar from './MathNavigationBar.vue'
-import StartGameButton from './StartGameButton.vue'
 
 import { provide, reactive, ref } from 'vue'
 
 const _game_session = reactive({
-  operations: 'all',
+  operations: ['+'],
   difficulty: 10,
   time: 0,
-  levels_count: 0,
+  levels_count: 10,
   correct_answers: 0,
   wrong_answers: 0
 })
 
+const _game_finished = ref(false)
+provide('_game_finished', _game_finished)
 const examplesListGenerationRef = ref(null)
 
 function registerExamplesListGeneration(fn) {
@@ -24,25 +25,31 @@ provide('_game_session', _game_session)
 
 const _show_game_timer = ref(false)
 
-function startGame() {
+function startGame() { //запуск игровой сессии
   if (examplesListGenerationRef.value) {
     examplesListGenerationRef.value()
   } else {
     console.error('Функция во внучатом компоненте не зарегистрирована')
   }
-  if (_game_session.time != 0) {
-    _show_game_timer.value = true
-  }
+  _show_game_timer.value = true
 }
+
+// function finishGame() { //завершение игровой сессии
+//   return
+// }
+
 provide('registerExamplesListGeneration', registerExamplesListGeneration)
+
 provide('_show_game_timer', _show_game_timer)
+
+provide('startGame', startGame)
+
 </script>
 
 <template>
   <main class="h-full p-6 my-6 flex flex-col items-center">
     <MathNavigationBar />
     <MathPanelContainer />
-    <StartGameButton @startGame="startGame" />
   </main>
 </template>
 

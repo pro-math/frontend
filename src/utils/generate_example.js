@@ -10,11 +10,11 @@ export function generateExample(operations, min, max) {
 
   let num1 = getRandomInt(min, max)
   let num2 = getRandomInt(min, max)
-  const operation = operations === 'all' ? getRandomOperation(['+', '-', '//', '*']) : operations
+  const operation = getRandomOperation(operations)
 
   if (operation === '//') {
     num2 = getRandomInt(min, max)
-    const multiplier = getRandomInt(1, Math.floor(max / num2))
+    const multiplier = getRandomInt(2, Math.floor(max / num2))
     num1 = num2 * multiplier
     if (num1 < min) {
       num1 = min // Убедимся, что num1 находится в пределах min
