@@ -115,3 +115,12 @@
 		/* .input-test:focus {
 			@apply text-red-800;
 		} */
+		.marg-er {
+			margin: 0.5rem 0 !important;
+			/* height: 2rem !important; */
+		}
+		.h-er {
+			height: 1rem !important;
+
+
+		}
