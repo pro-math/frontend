@@ -8,7 +8,10 @@
     <link href="./src/output.css" rel="stylesheet">
     <title>Document</title>
     <!-- <link href="./DataTables/datatables.min.css" rel="stylesheet"> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
 
 
     <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel=" stylesheet">
@@ -33,7 +36,7 @@
                 <div class="reg-log flex space-x-2">
                     <div class="dropdown mb-72">
                         <div tabindex="0" role="button" class="btn btn-sm m-1">
-                            Theme
+                            Темы
                             <svg width="12px" height="12px" class="h-2 w-2 fill-current opacity-60 inline-block"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048">
                                 <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
@@ -264,76 +267,77 @@
                     <p class="text-3xl pr-6 text-center text-base-content my-3">ВАШ РЕЙТИНГ</p>
                 </div>
                 <div class="test-config flex justify-center">
-                    <div class="control-panel space-x-6 flex">
+                    <div
+                        class="container flex flex-col justify-start  md:flex-row md:flex-wrap md:justify-center items-center gap-y-4 xl:flex-row xl:justify-center ">
 
-                        <div class="join">
-                            <input class="join-item btn btn-sm bg-primary after:text-primary" type="radio" name=""
-                                aria-label="операции" disabled />
-                            <div class="join">
-                                <input class="join-item btn btn-sm bg-primary/20" checked="checked" type="checkbox"
-                                    name="operations" value="+" aria-label="+" />
-                                <input class=" join-item btn btn-sm bg-primary/20" type="checkbox" name="operations"
-                                    value="-" aria-label="-" />
-                                <input class=" join-item btn btn-sm bg-primary/20" type="checkbox" name="operations"
-                                    value="//" aria-label="//" />
-                                <input class="join-item btn btn-sm bg-primary/20" type="checkbox" name="operations"
-                                    value="*" aria-label="*" />
-
+                        <div class="join w-full md:w-1/3">
+                            <input class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary"
+                                type="checkbox" name="" aria-label="операции" disabled />
+                            <div class="join w-full">
+                                <input class="join-item btn btn-sm bg-primary/20 flex-grow" type="checkbox"
+                                    name="operations" value="+" aria-label="+" checked="checked" />
+                                <input class=" join-item btn btn-sm bg-primary/20 flex-grow" type="checkbox"
+                                    name="operations" value="-" aria-label="-" />
+                                <input class=" join-item btn btn-sm bg-primary/20 flex-grow" type="checkbox"
+                                    name="operations" value="//" aria-label="//" />
+                                <input class="join-item btn btn-sm bg-primary/20 flex-grow" type="checkbox"
+                                    name="operations" value="*" aria-label="*" />
                             </div>
-
                         </div>
-
-                        <div class="join">
-                            <input class="join-item btn btn-sm bg-primary after:text-primary border-primary"
+                        <div class="join w-full md:w-1/3 md:ml-5xs ">
+                            <input
+                                class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary"
                                 type="radio" name="" aria-label="сложность" disabled />
-
-                            <div class="join">
-                                <input class="join-item btn btn-sm bg-primary/20" type="radio" name="levels"
+                            <div class="join w-full">
+                                <input class="join-item btn btn-sm bg-primary/20 flex-grow" type="radio" name="levels"
+                                    value="10" aria-label="10" checked="checked" />
+                                <input class="join-item btn btn-sm bg-primary/20 flex-grow" type="radio" name="levels"
+                                    value="100" aria-label="100" />
+                                <input class="join-item btn btn-sm bg-primary/20 flex-grow" type="radio" name="levels"
                                     value="1000" aria-label="1000" />
-                                <input class="join-item btn btn-sm bg-primary/20" type="radio" name="levels" value="100"
-                                    aria-label="100" />
-                                <input class="join-item btn btn-sm bg-primary/20" type="radio" name="levels" value="10"
-                                    aria-label="10" checked="checked" />
                             </div>
                         </div>
-                        <div class="join ">
-
-                            <div class="join">
-                                <input class="join-item btn btn-sm bg-primary/10" type="radio" name="options"
+                        <div class="join w-full md:w-1/3">
+                            <input
+                                class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary"
+                                type="radio" name="" aria-label="тип" disabled />
+                            <div class="join w-full ">
+                                <input class="join-item btn btn-sm bg-primary/10 flex-grow" type="radio" name="options"
                                     value="time" aria-label="на время" />
-                                <input class="join-item btn btn-sm bg-primary/10" type="radio" name="options"
+                                <input class="join-item btn btn-sm bg-primary/10 flex-grow" type="radio" name="options"
                                     value="count" aria-label="на количество" checked="checked" />
                             </div>
-
                         </div>
-                        <div>
-                            <div class="join hidden">
-                                <input class="join-item btn btn-sm bg-primary after:text-primary border-primary"
-                                    type="radio" name="options" aria-label="время решения" disabled />
-                                <div class="join">
-                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="time"
+                        <div class="w-full md:w-1/3 md:ml-5xs">
+                            <div class="join hidden w-full">
+                                <input
+                                    class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary"
+                                    type="radio" name="options" aria-label="время" disabled />
+                                <div class="join w-full">
+                                    <input class="join-item btn btn-sm bg-primary/10 flex-grow" type="radio" name="time"
                                         value="15s" aria-label="15" />
-                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="time"
+                                    <input class="join-item btn btn-sm bg-primary/10 flex-grow" type="radio" name="time"
                                         value="30s" aria-label="30" />
-                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="time"
+                                    <input class="join-item btn btn-sm bg-primary/10 flex-grow" type="radio" name="time"
                                         value="60s" aria-label="60" />
-                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="time"
+                                    <input class="join-item btn btn-sm bg-primary/10 flex-grow" type="radio" name="time"
                                         value="90s" aria-label="90" />
                                 </div>
 
                             </div>
-                            <div class="join">
-                                <input class="join-item btn btn-sm bg-primary after:text-primary border-primary"
-                                    type="radio" name="options" aria-label="количество примеров" disabled />
-                                <div class="join">
-                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="count"
-                                        value="10" aria-label="10" />
-                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="count"
-                                        value="15" aria-label="15" />
-                                    <input class="join-item btn btn-sm bg-primary/10" type="radio" name="count"
-                                        value="20" aria-label="20" />
-                                    <input class="join-item btn btn-sm bg-primary/10" checked="checked" type="radio"
-                                        name="count" value="30" aria-label="30" />
+                            <div class="join w-full ">
+                                <input
+                                    class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary"
+                                    type="radio" name="options" aria-label="количество" disabled />
+                                <div class="join w-full">
+                                    <input class="join-item btn btn-sm bg-primary/10 flex-grow" type="radio"
+                                        name="count" value="10" aria-label="10" />
+                                    <input class="join-item btn btn-sm bg-primary/10 flex-grow" type="radio"
+                                        name="count" value="15" aria-label="15" />
+                                    <input class="join-item btn btn-sm bg-primary/10 flex-grow" type="radio"
+                                        name="count" value="20" aria-label="20" />
+                                    <input class="join-item btn btn-sm bg-primary/10 flex-grow" checked="checked"
+                                        type="radio" name="count" value="30" aria-label="30" />
                                 </div>
                             </div>
 
@@ -349,7 +353,7 @@
                         class="w-full p-4 mt-6 lg:mt-0 rounded shadow bg-neutral text-neutral-content border border-primary">
 
 
-                        <table id="resultTable" class="stripe hover py-4 w-full">
+                        <table id="resultTable" class="stripe responsive hover py-4 w-full">
                             <thead>
                                 <tr>
                                     <th data-priority="1" class="text-primary text-sm">Процент правильно решенных</th>
@@ -411,7 +415,9 @@
             $('#resultTable').DataTable({
                 "language": {
                     "url": "./json/russian.json" // Обновленный локальный путь
-                }
+                },
+                "autoWidth": false,
+                "responsive": true,
             });
         });
     </script>

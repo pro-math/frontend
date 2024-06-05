@@ -44,6 +44,7 @@ module.exports = {
         'xs': '2rem',
         '3xs': '3rem',
         '5xs': '5rem',
+        '4xs': '8rem',
         '7xs': '20rem',
         '13xs': '26rem',
         '20xs': '35rem'
