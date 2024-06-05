@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+
+//Меню выбора темы
+
+</script>
 
 <template>
   <div class="dropdown mb-72">

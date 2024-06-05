@@ -1,56 +1,64 @@
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router';
-import axios from 'axios';
-import { validateEmail, validatePassword } from '../utils/validators';
 
-const router = new useRouter();
-const _email = ref('')
+//Модальное окно регистрации
+
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import axios from 'axios'
+import { validateLogin, validatePassword } from '../../../utils/validators'
+import { useCurrentUserStore } from '@/stores/current_user_store';
+
+const store = useCurrentUserStore()
+
+const router = new useRouter()
 const _username = ref('')
 const _password = ref('')
 const _confirm_password = ref('')
 
-
-
 const signUp = async (evt) => {
-  evt.preventDefault();
+  evt.preventDefault()
 
-  if (!validateEmail(_email.value)) {
-    alert('Неправильно введён email');
-    return;
+  if (!validateLogin(_username.value)) {
+    alert('Неправильно введён логин')
+    return
   }
 
-  if (!validatePassword(_password)) {
-    alert('Пароль не соответствует требованиям');
-    return;
+  if (!validatePassword(_password.value)) {
+    alert('Пароль не соответствует требованиям')
+    return
   }
+
   if (_password.value !== _confirm_password.value) {
-    alert('Пароли не совпадают');
-    return;
+    alert('Пароли не совпадают')
+    return
   }
 
   try {
-    const response = await axios.post('http://127.0.0.1:8000/api/v1/register', {
-      email: _email.value,
-      username: _username.value,
-      password: _password.value
-    });
-
-    if (response.status === 201) {
-      alert('Registration successful');
-      router.push('/profile')
-      document.getElementById('my_modal_4').close();
-      // Закройте модальное окно или перенаправьте пользователя
-    } else {
-      alert('Registration failed');
-    }
+    // eslint-disable-next-line no-unused-vars
+    const response = await axios
+      .post('https://70c4-83-171-69-39.ngrok-free.app/api/v1/users/register', {
+        username: _username.value,
+        password: _password.value
+      })
+      .then(function (response) {
+        console.log(response)
+        if (response.status === 201) {
+          console.log('Registration successful')
+          store.isLogged = true
+          store.username = _username.value
+          router.push('/profile')
+          document.getElementById('my_modal_4').close()
+        } else {
+          alert('Registration failed')
+        }
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   } catch (error) {
-    console.error('Error during registration:', error);
-    alert('An error occurred during registration');
-    router.push('/profile')
-    document.getElementById('my_modal_4').close();
+    console.error('Error during registration:', error)
   }
-};
+}
 </script>
 
 <template>
@@ -61,22 +69,6 @@ const signUp = async (evt) => {
       </form>
       <h3 class="font-bold text-lg btn-sm m-2">Регистрация</h3>
       <form class="space-y-4 flex justify-center flex-col" @submit="signUp">
-        <label class="input input-bordered flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            class="w-4 h-4 opacity-70"
-          >
-            <path
-              d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"
-            />
-            <path
-              d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
-            />
-          </svg>
-          <input type="text" class="grow" placeholder="Email" v-model="_email"/>
-        </label>
         <label class="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +95,14 @@ const signUp = async (evt) => {
               clip-rule="evenodd"
             />
           </svg>
-          <input type="password" value="" placeholder="Пароль" class="grow" v-model="_password" min=5/>
+          <input
+            type="password"
+            value=""
+            placeholder="Пароль"
+            class="grow"
+            v-model="_password"
+            min="5"
+          />
         </label>
         <label class="input input-bordered flex items-center gap-2">
           <svg

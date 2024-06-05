@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+
+//Меню настройки таблицы результатов
+
+</script>
 
 <template>
   <section class="">

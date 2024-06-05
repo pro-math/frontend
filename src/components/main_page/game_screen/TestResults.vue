@@ -1,4 +1,7 @@
 <script setup>
+
+//Результаты игровой сессии
+
 import { inject } from 'vue'
 const _game_session = inject('_game_session')
 </script>

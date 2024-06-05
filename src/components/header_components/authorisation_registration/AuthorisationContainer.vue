@@ -1,4 +1,7 @@
 <script setup>
+
+//Контейнер, содержащий кнопки регистрации и входа и модальные окна
+
 import SignInWindow from './SignInWindow.vue'
 import SignUpWindow from './SignUpWindow.vue'
 </script>

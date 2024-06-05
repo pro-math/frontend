@@ -1,5 +1,8 @@
 <script setup>
-import MathNavigationBar from './MathNavigationBar.vue'
+
+//Контейнер, содержащий меню настройки таблицы результатов и саму таблицу результатов
+
+import RatingNavigationBar from './RatingNavigationBar.vue'
 import RatingTable from './RatingTable.vue'
 </script>
 
@@ -8,7 +11,7 @@ import RatingTable from './RatingTable.vue'
     <div>
       <p class="font-bold text-xl text-secondary-content my-2">ВАШ РЕЙТИНГ</p>
     </div>
-    <MathNavigationBar />
+    <RatingNavigationBar />
     <RatingTable />
   </section>
 </template>

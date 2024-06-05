@@ -1,4 +1,7 @@
 <script setup>
+
+//Таймер
+
 import { ref, onMounted, inject, provide } from 'vue'
 
 const _game_session = inject('_game_session')

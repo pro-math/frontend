@@ -1,6 +1,9 @@
 <script setup>
-import MathPanelContainer from './MathPanelContainer.vue'
-import MathNavigationBar from './MathNavigationBar.vue'
+
+//Основной родительский компонент для страницы с игрой
+
+import MathPanelContainer from '../components/main_page/game_screen/MathPanelContainer.vue'
+import MathNavigationBar from '../components/main_page/game_screen/MathNavigationBar.vue'
 
 import { provide, reactive, ref } from 'vue'
 
@@ -12,6 +15,7 @@ const _game_session = reactive({
   correct_answers: 0,
   wrong_answers: 0
 })
+
 
 const _game_finished = ref(false)
 provide('_game_finished', _game_finished)

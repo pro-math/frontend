@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+
+//Футер (один для всей страницы)
+
+</script>
 
 <template>
   <footer class="footer items-center p-4 bg-neutral text-neutral-content">

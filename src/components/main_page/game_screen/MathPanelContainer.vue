@@ -1,4 +1,7 @@
 <script setup>
+
+// Контейнер, содержащий меню игры и таймер
+
 import TestTimer from './TestTimer.vue'
 import MathTestHandler from './MathTestHandler.vue'
 import TestResults from './TestResults.vue'

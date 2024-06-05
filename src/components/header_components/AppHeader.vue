@@ -1,7 +1,13 @@
 <script setup>
+
+//Хедер (один для всей страницы)
+
 import ThemeChoosingMenu from './ThemeChoosingMenu.vue'
-import AuthorisationContainer from './AuthorisationContainer.vue'
+import AuthorisationContainer from './authorisation_registration/AuthorisationContainer.vue'
 import ProfileButton from './ProfileButton.vue'
+import { useCurrentUserStore } from '@/stores/current_user_store';
+
+const store = useCurrentUserStore()
 </script>
 
 <template>
@@ -15,8 +21,8 @@ import ProfileButton from './ProfileButton.vue'
       <div>
         <div class="reg-log flex items-center space-x-2">
           <ThemeChoosingMenu />
-          <AuthorisationContainer />
-          <RouterLink to="/profile"><ProfileButton /></RouterLink>
+          <AuthorisationContainer v-if="!store.isLogged"/>
+          <RouterLink to="/profile"><ProfileButton v-if="store.isLogged"/></RouterLink>
         </div>
       </div>
     </nav>

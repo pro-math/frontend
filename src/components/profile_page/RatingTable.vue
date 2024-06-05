@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+
+//Таблица рейтинга
+
+</script>
 
 <template>
   <div class="overflow-x-auto max-h-7xs w-full my-6">

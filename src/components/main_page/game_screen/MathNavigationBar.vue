@@ -1,4 +1,7 @@
 <script setup>
+
+//Меню настройки игры
+
 import { ref, inject } from 'vue'
 
 const _show_game_time = ref(false)

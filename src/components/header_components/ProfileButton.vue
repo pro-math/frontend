@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+
+//Кнопка перехода на профиль
+
+</script>
 
 <template>
   <div class="avatar">

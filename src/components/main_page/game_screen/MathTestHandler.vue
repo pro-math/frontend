@@ -1,4 +1,7 @@
 <script setup>
+
+//Панель игровой сессии
+
 import { inject, onMounted, reactive, ref } from 'vue'
 import { generateExample } from '@/utils/generate_example'
 import { createRange } from '@/utils/create_range'
@@ -34,22 +37,22 @@ function examplesListGeneration() { //генерация списка приме
   let { min_number, max_number } = createRange(magnitude)
 
   if (_game_session.time != 0) {
-    if (_game_session.time == 30) {
+    if (_game_session.time == 15) {
       for (let i = 0; i < 70; i++) {
         let generated_example = generateExample(_game_session.operations, min_number, max_number)
         examples_list.push(generated_example)
       }
-    } else if (_game_session.time == 60) {
+    } else if (_game_session.time == 30) {
       for (let i = 0; i < 100; i++) {
         let generated_example = generateExample(_game_session.operations, min_number, max_number)
         examples_list.push(generated_example)
       }
-    } else if (_game_session.time == 90) {
+    } else if (_game_session.time == 60) {
       for (let i = 0; i < 130; i++) {
         let generated_example = generateExample(_game_session.operations, min_number, max_number)
         examples_list.push(generated_example)
       }
-    } else if (_game_session.time == 120) {
+    } else if (_game_session.time == 90) {
       for (let i = 0; i < 160; i++) {
         let generated_example = generateExample(_game_session.operations, min_number, max_number)
         examples_list.push(generated_example)

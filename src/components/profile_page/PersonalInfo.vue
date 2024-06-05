@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+
+//Персональная информация
+
+</script>
 
 <template>
   <section
