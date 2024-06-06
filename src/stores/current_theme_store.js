@@ -1,7 +1,15 @@
-import { ref } from 'vue'
+// import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCurrentTheme = defineStore('CurrentTheme', () => {
-  const currentTheme = ref('')
-  return { currentTheme}
+export const useThemeStore = defineStore({
+  id: 'Theme',
+  state: () => ({
+    currentTheme: 'dark'
+  }),
+  actions: {
+    changeTheme(theme) {
+      this.currentTheme = theme
+    }
+  },
+  persist: true
 })

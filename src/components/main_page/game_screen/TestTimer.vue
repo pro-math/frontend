@@ -1,8 +1,7 @@
 <script setup>
-
 //Таймер
 
-import { ref, onMounted, inject, provide } from 'vue'
+import { ref, onMounted, onUpdated, inject} from 'vue'
 
 const _game_session = inject('_game_session')
 
@@ -10,9 +9,14 @@ const _show_game_timer = inject('_show_game_timer')
 
 const _game_finished = inject('_game_finished')
 
-const _remaining_time = ref(_game_session.time)
+const _game_end = inject('_game_end')
+
+const _remaining_time = inject('_remaining_time')
+
+const _show_start_button = inject('_show_Start_button')
 
 const _timer = ref(0)
+
 
 function changeValue(newValue) {
   if (_timer.value) {
@@ -21,7 +25,6 @@ function changeValue(newValue) {
 }
 
 function startBasicTimer() {
-
   setInterval(() => {
     if (_remaining_time.value > 0) {
       _remaining_time.value -= 1
@@ -40,13 +43,6 @@ function startReversedTimer() {
   }, 1000)
 }
 
-function stopTimer() {
-  if (_remaining_time.value == 0) {
-    _show_game_timer.value = false
-  }
-}
-
-provide('stopTimer', stopTimer)
 
 onMounted(() => {
   changeValue(_remaining_time.value)
@@ -55,6 +51,14 @@ onMounted(() => {
     startBasicTimer()
   } else if (_game_session.levels_count != 0) {
     startReversedTimer()
+  }
+})
+
+onUpdated(() => {
+  if ((_remaining_time.value == 0) && (_game_session.time > 0)) {
+    _show_game_timer.value = false
+    _show_start_button.value = true
+    _game_end.value = true
   }
 })
 </script>

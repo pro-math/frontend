@@ -1,7 +1,9 @@
 <script setup>
-
 //Меню выбора темы
 
+import { useThemeStore } from '@/stores/current_theme_store'
+
+const storeTheme = useThemeStore()
 </script>
 
 <template>
@@ -23,55 +25,50 @@
         <input
           type="radio"
           name="theme-dropdown"
-          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+          class="btn btn-sm btn-block btn-ghost justify-start"
           aria-label="Default"
           value="default"
+          @click="storeTheme.changeTheme('dark')"
         />
       </li>
       <li>
         <input
           type="radio"
           name="theme-dropdown"
-          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+          class="btn btn-sm btn-block btn-ghost justify-start"
           aria-label="Сupcake"
           value="cupcake"
+          @click="storeTheme.changeTheme('cupcake')"
         />
       </li>
       <li>
         <input
           type="radio"
           name="theme-dropdown"
-          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+          class="btn btn-sm btn-block btn-ghost justify-start"
           aria-label="Valentine"
           value="valentine"
+          @click="storeTheme.changeTheme('valentine')"
         />
       </li>
       <li>
         <input
           type="radio"
           name="theme-dropdown"
-          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+          class="btn btn-sm btn-block btn-ghost justify-start"
           aria-label="Emerald"
           value="emerald"
+          @click="storeTheme.changeTheme('emerald')"
         />
       </li>
       <li>
         <input
           type="radio"
           name="theme-dropdown"
-          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+          class="btn btn-sm btn-block btn-ghost justify-start"
           aria-label="Corporate"
           value="corporate"
-        />
-      </li>
-
-      <li>
-        <input
-          type="radio"
-          name="theme-dropdown"
-          class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-          aria-label="Сupcake"
-          value="cupcake"
+          @click="storeTheme.changeTheme('corporate')"
         />
       </li>
     </ul>

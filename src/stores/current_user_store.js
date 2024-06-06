@@ -1,8 +1,19 @@
-import { ref } from 'vue'
+// import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCurrentUserStore = defineStore('CurrentUserStore', () => {
-  const isLogged = ref(false)
-  const username = ref('')
-  return { isLogged, username }
+export const useCurrentUserStore = defineStore({
+  id: 'currentUser',
+  state: () => ({
+    isLogged: false,
+    username: ''
+  }),
+  actions: {
+    changeLoggedState() {
+      this.isLogged = !this.isLogged
+    },
+    changeUsername(newUsername) {
+      this.username = newUsername
+    }
+  },
+  persist: true
 })

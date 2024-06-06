@@ -19,34 +19,17 @@ const _game_session = reactive({
 
 const _game_finished = ref(false)
 provide('_game_finished', _game_finished)
-const examplesListGenerationRef = ref(null)
 
-function registerExamplesListGeneration(fn) {
-  examplesListGenerationRef.value = fn
-}
+
 
 provide('_game_session', _game_session)
 
 const _show_game_timer = ref(false)
 
-function startGame() { //запуск игровой сессии
-  if (examplesListGenerationRef.value) {
-    examplesListGenerationRef.value()
-  } else {
-    console.error('Функция во внучатом компоненте не зарегистрирована')
-  }
-  _show_game_timer.value = true
-}
 
-// function finishGame() { //завершение игровой сессии
-//   return
-// }
-
-provide('registerExamplesListGeneration', registerExamplesListGeneration)
 
 provide('_show_game_timer', _show_game_timer)
 
-provide('startGame', startGame)
 
 </script>
 

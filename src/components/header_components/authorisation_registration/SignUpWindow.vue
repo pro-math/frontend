@@ -1,14 +1,13 @@
 <script setup>
-
 //Модальное окно регистрации
 
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
 import { validateLogin, validatePassword } from '../../../utils/validators'
-import { useCurrentUserStore } from '@/stores/current_user_store';
+import { useCurrentUserStore } from '@/stores/current_user_store'
 
-const store = useCurrentUserStore()
+const storeUser = useCurrentUserStore()
 
 const router = new useRouter()
 const _username = ref('')
@@ -19,19 +18,23 @@ const signUp = async (evt) => {
   evt.preventDefault()
 
   if (!validateLogin(_username.value)) {
-    alert('Неправильно введён логин')
+    console.error('Неправильно введён логин')
     return
   }
 
   if (!validatePassword(_password.value)) {
-    alert('Пароль не соответствует требованиям')
+    console.error('Пароль не соответствует требованиям')
     return
   }
 
   if (_password.value !== _confirm_password.value) {
-    alert('Пароли не совпадают')
+    console.error('Пароли не совпадают')
     return
   }
+  // storeUser.changeLoggedState()
+  // storeUser.changeUsername(_username.value)
+  // router.push('/profile')
+  // document.getElementById('my_modal_4').close()
 
   try {
     // eslint-disable-next-line no-unused-vars
@@ -44,8 +47,8 @@ const signUp = async (evt) => {
         console.log(response)
         if (response.status === 201) {
           console.log('Registration successful')
-          store.isLogged = true
-          store.username = _username.value
+          storeUser.isLogged = true
+          storeUser.username = _username.value
           router.push('/profile')
           document.getElementById('my_modal_4').close()
         } else {

@@ -1,13 +1,9 @@
 <script setup>
-
 //Панель игровой сессии
 
-import { inject, onMounted, reactive, ref } from 'vue'
+import { inject, reactive, ref } from 'vue'
 import { generateExample } from '@/utils/generate_example'
 import { createRange } from '@/utils/create_range'
-
-
-const registerExamplesListGeneration = inject('registerExamplesListGeneration', null)
 
 const _game_session = inject('_game_session') //инъекция объекта
 
@@ -21,52 +17,27 @@ const _next_example = reactive({}) //следующий пример
 
 const _answer_input = ref() //DOM-элемент поля ввода
 
-const startGame = inject('startGame')
+const _show_game_timer = inject('_show_game_timer')
+
+// const _remaining_time = inject('_remaining_time')
 
 // const _game_finished = inject('_game_finished')
 
-const _show_start_button = ref(true)
+const _show_start_button = inject('_show_start_button')
 
 let examples_list = [] // список примеров
 
+let magnitude = _game_session.difficulty.toString().length
 
-function examplesListGeneration() { //генерация списка примеров
-  registerExamplesListGeneration
-  let magnitude = _game_session.difficulty.toString().length
+let { min_number, max_number } = createRange(magnitude)
 
-  let { min_number, max_number } = createRange(magnitude)
+function changeExample() {
+  //смена примера и обновление статистики игровой сессии
 
   if (_game_session.time != 0) {
-    if (_game_session.time == 15) {
-      for (let i = 0; i < 70; i++) {
-        let generated_example = generateExample(_game_session.operations, min_number, max_number)
-        examples_list.push(generated_example)
-      }
-    } else if (_game_session.time == 30) {
-      for (let i = 0; i < 100; i++) {
-        let generated_example = generateExample(_game_session.operations, min_number, max_number)
-        examples_list.push(generated_example)
-      }
-    } else if (_game_session.time == 60) {
-      for (let i = 0; i < 130; i++) {
-        let generated_example = generateExample(_game_session.operations, min_number, max_number)
-        examples_list.push(generated_example)
-      }
-    } else if (_game_session.time == 90) {
-      for (let i = 0; i < 160; i++) {
-        let generated_example = generateExample(_game_session.operations, min_number, max_number)
-        examples_list.push(generated_example)
-      }
-    }
-  } else if (_game_session.levels_count != 0) {
-    for (let i = 0; i < _game_session.levels_count; i++) {
-      let generated_example = generateExample(_game_session.operations, min_number, max_number)
-      examples_list.push(generated_example)
-    }
+    let generated_example = generateExample(_game_session.operations, min_number, max_number)
+    examples_list.push(generated_example)
   }
-}
-
-function changeExample() { //смена примера и обновление статистики игровой сессии
 
   if (_current_example.answer.toString() == _answer_input.value.toString()) {
     _game_session.correct_answers++
@@ -74,6 +45,11 @@ function changeExample() { //смена примера и обновление �
     _game_session.wrong_answers++
   }
   _answer_input.value = ''
+
+  if ((pointer == examples_list.length - 1) && _game_session.levels_count != 0) {
+    _show_start_button.value = true
+    _show_game_timer.value = false
+  }
 
   if (pointer == examples_list.length - 2) {
     pointer++
@@ -85,7 +61,6 @@ function changeExample() { //смена примера и обновление �
 
     _next_example.example = ''
     _next_example.answer = ''
-  
   } else {
     pointer++
 
@@ -100,10 +75,29 @@ function changeExample() { //смена примера и обновление �
   }
 }
 
-function showTestHandler() { // появление игрового поля
+function startGame() {
+  // появление игрового поля
   _show_start_button.value = !_show_start_button.value
 
-  startGame()
+  _show_game_timer.value = true
+
+  _game_session.correct_answers = 0
+
+  _game_session.wrong_answers = 0
+
+  examples_list = []
+
+  if (_game_session.time != 0) {
+    for (let i = 0; i < 2; i++) {
+      let generated_example = generateExample(_game_session.operations, min_number, max_number)
+      examples_list.push(generated_example)
+    }
+  } else if (_game_session.levels_count != 0) {
+    for (let i = 0; i < _game_session.levels_count; i++) {
+      let generated_example = generateExample(_game_session.operations, min_number, max_number)
+      examples_list.push(generated_example)
+    }
+  }
 
   pointer = 0
 
@@ -116,30 +110,16 @@ function showTestHandler() { // появление игрового поля
   _next_example.example = examples_list[pointer + 1].example
   _next_example.answer = examples_list[pointer + 1].answer
 }
-
-onMounted(() => {
-  if (registerExamplesListGeneration) {
-    registerExamplesListGeneration(examplesListGeneration)
-  } else {
-    console.error('Функция registerExamplesListGeneration не найдена')
-  }
-})
-
-
 </script>
 
 <template>
   <div
     class="m-3 flex items-center justify-center w-4/6 h-7xs border border-dark-grey p-6 rounded-md bg-neutral/50"
   >
-    <p
-      class="text-5xl text-center cursor-pointer"
-      v-if="_show_start_button"
-      @click="showTestHandler"
-    >
+    <p class="text-5xl text-center cursor-pointer" v-if="_show_start_button" @click="startGame">
       НАЧАТЬ
     </p>
-    <div class="flex flex-col items-center justify-center space-y-4" v-if="!_show_start_button">
+    <div class="flex flex-col items-center justify-center space-y-4" v-else>
       <p class="text-4xl max-sm:text-xl text-neutral/80" v-if="_previous_example.example">
         {{ _previous_example.example }} = {{ _previous_example.answer }}
       </p>

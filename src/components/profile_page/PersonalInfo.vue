@@ -1,12 +1,13 @@
 <script setup>
-
 //Персональная информация
 
+import { useCurrentUserStore } from '@/stores/current_user_store'
+const storeUser = useCurrentUserStore()
 </script>
 
 <template>
   <section
-    class="flex justify-evenly items-center bg-base-300 border-2 rounded-sm space-x-3xs border-black p-2"
+    class="flex items-center bg-base-300 border-2 rounded rounded-box mb-6 space-x-3xs border-black px-4 py-2"
   >
     <div class="avatar">
       <div class="border-2 bg-primary/50 border-black w-3xs rounded-full">
@@ -16,7 +17,7 @@
 
     <div class="">
       <p class="text-primary/50 text-sm font-bold">НИКНЕЙМ</p>
-      <span class="text-sm">rwerrx</span>
+      <span class="text-sm">{{ storeUser.username }}</span>
       <input
         type="text"
         value="rwerrx"
