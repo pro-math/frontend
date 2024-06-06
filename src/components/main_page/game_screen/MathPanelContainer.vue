@@ -20,11 +20,11 @@ provide('_show_start_button', _show_start_button)
 </script>
 
 <template>
-  <section class="flex flex-col items-center h-full my-6 p-3 rounded-md border bg-base-300 w-5/6">
+  <section class="container flex flex-col items-center h-full my-6 p-3 rounded-md border bg-base-300 w-5/6">
     <TestTimer v-if="_show_game_timer" />
-    <div class="flex justify-end items-center w-full text-3xl h-5xs" v-else>
+    <div class="flex justify-center items-center w-1/6 h-3xs text-sm md:w-1/6 md:h-5xs lg:w-1/6 rounded-box border border-primary/25 " v-else>
       <span
-        class="countdown hidden bodrered text-3xl max-sm:text-xl rounded-full bg-primary text-center p-4 border-2 border-drak-grey text-dark-grey mx-2"
+        class="font-light text-primary/80 text-lg md:text-4xl font-timer"
       >
         <span> </span>
       </span>

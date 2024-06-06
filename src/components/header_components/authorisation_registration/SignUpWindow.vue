@@ -72,7 +72,8 @@ const signUp = async (evt) => {
       </form>
       <h3 class="font-bold text-lg btn-sm m-2">Регистрация</h3>
       <form class="space-y-4 flex justify-center flex-col" @submit="signUp">
-        <label class="input input-bordered flex items-center gap-2">
+        <div>
+          <label class="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -85,6 +86,12 @@ const signUp = async (evt) => {
           </svg>
           <input type="text" class="grow" placeholder="Никнейм" v-model="_username" />
         </label>
+        <div class=" h-er">
+                                            <span class="marg-er text-dark-red text-xs"></span>
+
+                                        </div>
+        </div>
+       <div>
         <label class="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -107,6 +114,13 @@ const signUp = async (evt) => {
             min="5"
           />
         </label>
+        <div class=" h-er">
+                                            <span class="marg-er text-dark-red text-xs"></span>
+
+                                        </div>
+       </div>
+        
+       <div>
         <label class="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -128,6 +142,12 @@ const signUp = async (evt) => {
             v-model="_confirm_password"
           />
         </label>
+        <div class=" h-er">
+                                            <span class="marg-er text-dark-red text-xs"></span>
+
+                                        </div>
+       </div>
+       
         <button class="btn btn-md bordered text-xl">войти</button>
       </form>
     </div>

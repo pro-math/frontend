@@ -120,31 +120,31 @@ function startGame() {
       НАЧАТЬ
     </p>
     <div class="flex flex-col items-center justify-center space-y-4" v-else>
-      <p class="text-4xl max-sm:text-xl text-neutral/80" v-if="_previous_example.example">
+      <p class="text-xs text-base-content/30 md:text-4xl" v-if="_previous_example.example">
         {{ _previous_example.example }} = {{ _previous_example.answer }}
       </p>
-      <p class="text-4xl max-sm:text-xl text-neutral/80" v-else>
+      <p class="text-xs text-base-content/30 md:text-4xl" v-else>
         <br />
       </p>
-      <div class="flex justify-center items-center space-x-2">
+      <div class="flex justify-center items-center">
         <p
-          class="btn hover:bg-none bodrered max-sm:text-2xl btn-ghost btn-6xl hover:bg-grey/0 text-5xl"
+          class="btn hover:bg-none bodrered btn-ghost btn-6xl hover:bg-grey/0 text-xs md:text-5xl"
         >
           {{ _current_example.example }} =
         </p>
         <input
           type="text"
           placeholder="..."
-          class="join-item input input-primary outline-none w-1/4 input-6xl border-2 border-primary bg-opacity-0 text-black max-sm:input-3xl max-sm:text-sm text-3xl focus:border-primary"
+          class="join-item input input-primary outline-none text-xs input-xs w-xs md:w-4xs md:input-md md:text-2xl border-2 border-primary bg-opacity-0 focus:border-primary"
           v-model="_answer_input"
           @keyup.enter="changeExample"
         />
         <!-- <kbd class="bodrered join-item btn  btn-xl bg-primary kbd-lg">Enter</kbd>               -->
       </div>
-      <p class="text-4xl max-sm:text-xl text-neutral/70" v-if="_next_example.example">
+      <p class="text-xs md:text-4xl text-base-content/30" v-if="_next_example.example">
         {{ _next_example.example }} =
       </p>
-      <p class="text-4xl max-sm:text-xl text-neutral/70" v-else><br /></p>
+      <p class="text-xs md:text-4xl text-base-content/30" v-else><br /></p>
     </div>
   </div>
 </template>

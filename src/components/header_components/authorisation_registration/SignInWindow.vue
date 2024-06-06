@@ -81,7 +81,8 @@ const signIn = async (evt) => {
           </svg>
           <input type="text" class="grow" placeholder="Email" v-modal="_email"/>
         </label> -->
-        <label class="input input-bordered flex items-center gap-2">
+        <div>
+          <label class="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -94,7 +95,13 @@ const signIn = async (evt) => {
           </svg>
           <input type="text" class="grow" placeholder="Никнейм" v-model="_username" />
         </label>
-        <label class="input input-bordered flex items-center gap-2">
+        <div class="h-er">
+        <span class=" marg-er text-dark-red text-xs"></span>
+
+        </div>
+        </div>
+        <div>
+          <label class="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -109,6 +116,12 @@ const signIn = async (evt) => {
           </svg>
           <input type="password" placeholder="Пароль" class="grow" value="" v-model="_password" />
         </label>
+        <div class="h-er">
+        <span class=" marg-er text-dark-red text-xs"></span>
+
+        </div>
+        </div>
+        
         <div class="form-control">
           <label class="label cursor-pointer">
             <span class="label-text">ЗАПОМНИТЬ МЕНЯ</span>

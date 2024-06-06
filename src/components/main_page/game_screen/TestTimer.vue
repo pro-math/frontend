@@ -64,9 +64,9 @@ onUpdated(() => {
 </script>
 
 <template>
-  <div class="flex justify-end items-center w-full text-3xl h-5xs">
+  <div class="flex justify-center items-center w-1/6 h-3xs text-sm md:w-1/6 md:h-5xs lg:w-1/6 rounded-box border border-primary/25 ">
     <span
-      class="countdown bodrered text-3xl max-sm:text-xl rounded-full bg-primary text-center p-4 border-2 border-drak-grey text-dark-grey mx-2"
+      class="font-light text-primary/80 text-lg md:text-4xl font-timer "
     >
       <span ref="_timer"></span>
     </span>

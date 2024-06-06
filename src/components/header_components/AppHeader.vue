@@ -12,7 +12,7 @@ const store = useCurrentUserStore()
 
 <template>
   <header>
-    <nav class="flex justify-between p-3">
+    <nav class="flex justify-between items-center p-3">
       <RouterLink to="/">
         <div class="logo">
           <h1 class="font-bold text-3xl col-auto">ProMath</h1>

@@ -63,18 +63,18 @@ function showLevelsCount() {
 <template>
   <section class="">
     <div class="test-config flex justify-center">
-      <div class="control-panel space-x-6 flex">
-        <div class="join">
+      <div class="container flex flex-col justify-start  md:flex-row md:flex-wrap md:justify-center items-center gap-y-4 xl:flex-row xl:justify-center ">
+        <div class="join w-full md:w-1/3">
           <input
-            class="join-item btn btn-sm bg-primary after:text-primary"
+            class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary"
             type="radio"
             name=""
             aria-label="операции"
             disabled
           />
-          <div class="join">
+          <div class="join w-full">
             <input
-              class="join-item btn btn-sm bg-primary/20"
+              class="join-item btn btn-sm bg-primary/20 flex-grow"
               type="checkbox"
               name="operations"
               value="+"
@@ -83,7 +83,7 @@ function showLevelsCount() {
               v-on:change="updateOperationsList"
             />
             <input
-              class="join-item btn btn-sm bg-primary/20"
+              class="join-item btn btn-sm bg-primary/20 flex-grow"
               type="checkbox"
               name="operations"
               value="-"
@@ -92,7 +92,7 @@ function showLevelsCount() {
               v-on:change="updateOperationsList"
             />
             <input
-              class="join-item btn btn-sm bg-primary/20"
+              class="join-item btn btn-sm bg-primary/20 flex-grow"
               type="checkbox"
               name="operations"
               value="//"
@@ -101,7 +101,7 @@ function showLevelsCount() {
               v-on:change="updateOperationsList"
             />
             <input
-              class="join-item btn btn-sm bg-primary/20"
+              class="join-item btn btn-sm bg-primary/20 flex-grow"
               type="checkbox"
               name="operations"
               value="*"
@@ -112,18 +112,18 @@ function showLevelsCount() {
           </div>
         </div>
 
-        <div class="join">
+        <div class="join w-full md:w-1/3  md:ml-5xs">
           <input
-            class="join-item btn btn-sm bg-primary after:text-primary border-primary"
+            class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary"
             type="radio"
             name=""
             aria-label="сложность"
             disabled
           />
 
-          <div class="join">
+          <div class="join w-full">
             <input
-              class="join-item btn btn-sm bg-primary/20"
+              class="join-item btn btn-sm bg-primary/20 flex-grow"
               type="radio"
               name="levels"
               value="10"
@@ -132,7 +132,7 @@ function showLevelsCount() {
               @click="_game_session.difficulty = 10"
             />
             <input
-              class="join-item btn btn-sm bg-primary/20"
+              class="join-item btn btn-sm bg-primary/20 flex-grow"
               type="radio"
               name="levels"
               value="100"
@@ -140,7 +140,7 @@ function showLevelsCount() {
               @click="_game_session.difficulty = 100"
             />
             <input
-              class="join-item btn btn-sm bg-primary/20"
+              class="join-item btn btn-sm bg-primary/20 flex-grow"
               type="radio"
               name="levels"
               value="1000"
@@ -149,10 +149,12 @@ function showLevelsCount() {
             />
           </div>
         </div>
-        <div class="join">
-          <div class="join">
+        <div class="join w-full md:w-1/3">
+          <input class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary" type="radio"
+                            name="" aria-label="тип" disabled />
+          <div class="join w-full">
             <input
-              class="join-item btn btn-sm bg-neutral text-primary"
+              class="join-item btn btn-sm bg-primary/20 flex-grow"
               type="radio"
               name="options"
               value="time"
@@ -160,7 +162,7 @@ function showLevelsCount() {
               @click="showGameTime"
             />
             <input
-              class="join-item btn btn-sm bg-neutral text-primary"
+              class="join-item btn btn-sm bg-primary/20 flex-grow"
               type="radio"
               name="options"
               value="count"
@@ -170,18 +172,19 @@ function showLevelsCount() {
             />
           </div>
         </div>
-        <div>
-          <div class="join" v-if="_show_game_time">
+        <div class="join w-full md:w-1/3 md:ml-5xs">
+
+          <div class="join w-full" v-if="_show_game_time">
             <input
-              class="join-item btn btn-sm bg-primary after:text-primary border-primary"
+              class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary"
               type="radio"
               name="options"
-              aria-label="время решения"
+              aria-label="время"
               disabled
             />
-            <div class="join">
+            <div class="join w-full">
               <input
-                class="join-item btn btn-sm bg-primary/10"
+                class="join-item btn btn-sm bg-primary/20 flex-grow"
                 type="radio"
                 name="time"
                 value="15s"
@@ -189,7 +192,7 @@ function showLevelsCount() {
                 @click="_game_session.time = 15"
               />
               <input
-                class="join-item btn btn-sm bg-primary/10"
+                class="join-item btn btn-sm bg-primary/20 flex-grow"
                 type="radio"
                 name="time"
                 value="30s"
@@ -197,7 +200,7 @@ function showLevelsCount() {
                 @click="_game_session.time = 30"
               />
               <input
-                class="join-item btn btn-sm bg-primary/10"
+                class="join-item btn btn-sm bg-primary/20 flex-grow"
                 type="radio"
                 name="time"
                 value="60s"
@@ -205,7 +208,7 @@ function showLevelsCount() {
                 @click="_game_session.time = 60"
               />
               <input
-                class="join-item btn btn-sm bg-primary/10"
+                class="join-item btn btn-sm bg-primary/20 flex-grow"
                 type="radio"
                 name="time"
                 value="90s"
@@ -214,17 +217,17 @@ function showLevelsCount() {
               />
             </div>
           </div>
-          <div class="join" v-if="_show_levels_count">
+          <div class="join w-full" v-if="_show_levels_count">
             <input
-              class="join-item btn btn-sm bg-primary after:text-primary border-primary"
+              class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary"
               type="radio"
               name="options"
-              aria-label="количество примеров"
+              aria-label="количество"
               disabled
             />
-            <div class="join">
+            <div class="join w-full">
               <input
-                class="join-item btn btn-sm bg-primary/10"
+                class="join-item btn btn-sm bg-primary/20 flex-grow"
                 type="radio"
                 name="count"
                 value="10"
@@ -233,7 +236,7 @@ function showLevelsCount() {
                 @click="_game_session.levels_count = 10"
               />
               <input
-                class="join-item btn btn-sm bg-primary/10"
+                class="join-item btn btn-sm bg-primary/20 flex-grow"
                 type="radio"
                 name="count"
                 value="15"
@@ -241,7 +244,7 @@ function showLevelsCount() {
                 @click="_game_session.levels_count = 15"
               />
               <input
-                class="join-item btn btn-sm bg-primary/10"
+                class="join-item btn btn-sm bg-primary/20 flex-grow"
                 type="radio"
                 name="count"
                 value="20"
@@ -249,7 +252,7 @@ function showLevelsCount() {
                 @click="_game_session.levels_count = 20"
               />
               <input
-                class="join-item btn btn-sm bg-primary/10"
+                class="join-item btn btn-sm bg-primary/20 flex-grow"
                 type="radio"
                 name="count"
                 value="30"
