@@ -5,158 +5,27 @@
 </script>
 
 <template>
-  <div class="overflow-x-auto max-h-7xs w-full my-6">
-    <table class="table bg-base-300 w-full">
-      <thead class="">
-        <tr>
-          <th></th>
-          <th>Затраченное время</th>
-          <th>Количество правильных</th>
-          <th>Количество неправильных</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- row 1 -->
-        <tr>
-          <th>1</th>
-          <td>20s</td>
-          <td>20</td>
-          <td>10</td>
-        </tr>
-        <!-- row 2 -->
-        <tr>
-          <th>2</th>
-          <td>20</td>
-          <td>20s</td>
-          <td>10</td>
-        </tr>
-        <!-- row 3 -->
-        <tr>
-          <th>3</th>
-          <td>20</td>
-          <td>20s</td>
-          <td>20</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>20</td>
-          <td>20s</td>
-          <td>20</td>
-        </tr>
-        <!-- row 2 -->
-        <tr>
-          <th>5</th>
-          <td>20</td>
-          <td>20s</td>
-          <td>20</td>
-        </tr>
-        <!-- row 3 -->
-        <tr>
-          <th>6</th>
-          <td>20</td>
-          <td>20s</td>
-          <td>20</td>
-        </tr>
-        <tr>
-          <th>7</th>
-          <td>20</td>
-          <td>20s</td>
-          <td>20</td>
-        </tr>
-        <!-- row 2 -->
-        <tr>
-          <th>8</th>
-          <td>20</td>
-          <td>20s</td>
-          <td>20</td>
-        </tr>
-        <tr>
-          <th>9</th>
-          <td>20</td>
-          <td>20s</td>
-          <td>20</td>
-        </tr>
-        <tr>
-          <th>10</th>
-          <td>20</td>
-          <td>20s</td>
-          <td>20</td>
-        </tr>
+  <section>
+                <div class=" w-full my-6">
+                    <div id='recipients'
+                        class="w-full p-4 mt-6 lg:mt-0 rounded shadow bg-neutral text-neutral-content border border-primary">
 
-        <tr>
-          <th>2</th>
-          <td>Hart Hagerty</td>
-          <td>Desktop Support Technician</td>
-          <td>Purple</td>
-        </tr>
-        <!-- row 3 -->
-        <tr>
-          <th>3</th>
-          <td>Brice Swyre</td>
-          <td>Tax Accountant</td>
-          <td>Red</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td></td>
-          <td>Quality Control Specialist</td>
-          <td>Blue</td>
-        </tr>
-        <!-- row 2 -->
-        <tr>
-          <th>2</th>
-          <td>Hart Hagerty</td>
-          <td>Desktop Support Technician</td>
-          <td>Purple</td>
-        </tr>
-        <!-- row 3 -->
-        <tr>
-          <th>3</th>
-          <td>Brice Swyre</td>
-          <td>Tax Accountant</td>
-          <td>Red</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td></td>
-          <td>Quality Control Specialist</td>
-          <td>Blue</td>
-        </tr>
-        <!-- row 2 -->
-        <tr>
-          <th>2</th>
-          <td>Hart Hagerty</td>
-          <td>Desktop Support Technician</td>
-          <td>Purple</td>
-        </tr>
-        <!-- row 3 -->
-        <tr>
-          <th>3</th>
-          <td>Brice Swyre</td>
-          <td>Tax Accountant</td>
-          <td>Red</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td></td>
-          <td>Quality Control Specialist</td>
-          <td>Blue</td>
-        </tr>
-        <!-- row 2 -->
-        <tr>
-          <th>2</th>
-          <td>Hart Hagerty</td>
-          <td>Desktop Support Technician</td>
-          <td>Purple</td>
-        </tr>
-        <!-- row 3 -->
-        <tr>
-          <th>3</th>
-          <td>Brice Swyre</td>
-          <td>Tax Accountant</td>
-          <td>Red</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
+                        <table id="resultTable" class="stripe responsive hover py-4 w-full">
+                            <thead>
+                                <tr>
+                                    <th data-priority="1" class="text-primary text-sm">Процент правильно решенных</th>
+                                    <th data-priority="2" class="text-primary text-sm">Количество правильно решенных
+                                    </th>
+                                    <th data-priority="3" class="text-primary text-sm">Затраченное время</th>
+                                    <th data-priority="4" class="text-primary text-sm">Операция</th>
+                                    <!-- <th data-priority="5" class="text-primary text-sm"></th> -->
+                                </tr>
+                            </thead>
+                            <tbody class="h-96">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
 </template>
