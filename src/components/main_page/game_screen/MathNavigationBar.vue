@@ -1,8 +1,7 @@
 <script setup>
-
 //Меню настройки игры
 
-import { ref, inject } from 'vue'
+import { inject, ref } from 'vue';
 
 const _show_game_time = ref(false)
 const _show_levels_count = ref(true)
@@ -13,57 +12,60 @@ const _minus_operation = ref(false)
 const _multiplication_operation = ref(false)
 const _division_operation = ref(false)
 
-function updateOperationsList() {
-  
-  if (_plus_operation.value && !_game_session.operations.includes('+')) {
-    _game_session.operations.push('+')
-  } else if (!_plus_operation.value && _game_session.operations.includes('+')){
+function updateOperationsList(operation) {
+  if (!_game_session.operations.includes(operation)) {
+    _game_session.operations.push(operation)
+  } else if (_game_session.operations.includes(operation)) {
     _game_session.operations = _game_session.operations.filter((n) => {
-      return n != '+'
+      return n != operation
     })
   }
-  if (_minus_operation.value && !_game_session.operations.includes('-')) {
-    _game_session.operations.push('-')
-  } else if (!_minus_operation.value && _game_session.operations.includes('-')){
-    _game_session.operations = _game_session.operations.filter((n) => {
-      return n != '-'
-    })
-  }
-  if (_multiplication_operation.value && !_game_session.operations.includes('*')) {
-    _game_session.operations.push('*')
-  } else if (!_multiplication_operation.value && _game_session.operations.includes('*')){
-    _game_session.operations = _game_session.operations.filter((n) => {
-      return n != '*'
-    })
-  }
-  if (_division_operation.value && !_game_session.operations.includes('//')) {
-    _game_session.operations.push('//')
-  } else if (!_division_operation.value && _game_session.operations.includes('//')){
-    _game_session.operations = _game_session.operations.filter((n) => {
-      return n != '//'
-    })
-  }
+  // if (_minus_operation.value && !_game_session.operations.includes('-')) {
+  //   _game_session.operations.push('-')
+  // } else if (!_minus_operation.value && _game_session.operations.includes('-')) {
+  //   _game_session.operations = _game_session.operations.filter((n) => {
+  //     return n != '-'
+  //   })
+  // }
+  // if (_multiplication_operation.value && !_game_session.operations.includes('*')) {
+  //   _game_session.operations.push('*')
+  // } else if (!_multiplication_operation.value && _game_session.operations.includes('*')) {
+  //   _game_session.operations = _game_session.operations.filter((n) => {
+  //     return n != '*'
+  //   })
+  // }
+  // if (_division_operation.value && !_game_session.operations.includes('/')) {
+  //   _game_session.operations.push('/')
+  // } else if (!_division_operation.value && _game_session.operations.includes('/')) {
+  //   _game_session.operations = _game_session.operations.filter((n) => {
+  //     return n != '/'
+  //   })
+  // }
   // console.log(_game_session.operations)
 }
 
 function showGameTime() {
   _show_game_time.value = true
   _show_levels_count.value = false
+  _game_session.game_mode = 'time_mode'
   _game_session.levels_count = 0
+  _game_session.time = 15
 }
 function showLevelsCount() {
   _show_levels_count.value = true
   _show_game_time.value = false
+  _game_session.game_mode = 'count_mode'
   _game_session.time = 0
+  _game_session.levels_count = 10
 }
-
-
 </script>
 
 <template>
   <section class="">
     <div class="test-config flex justify-center">
-      <div class="container flex flex-col justify-start  md:flex-row md:flex-wrap md:justify-center items-center gap-y-4 xl:flex-row xl:justify-center ">
+      <div
+        class="container flex flex-col justify-start md:flex-row md:flex-wrap md:justify-center items-center gap-y-4 xl:flex-row xl:justify-center"
+      >
         <div class="join w-full md:w-1/3">
           <input
             class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary"
@@ -80,7 +82,7 @@ function showLevelsCount() {
               value="+"
               aria-label="+"
               v-model="_plus_operation"
-              v-on:change="updateOperationsList"
+              v-on:change="updateOperationsList('+')"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -89,16 +91,16 @@ function showLevelsCount() {
               value="-"
               aria-label="-"
               v-model="_minus_operation"
-              v-on:change="updateOperationsList"
+              v-on:change="updateOperationsList('-')"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
               type="checkbox"
               name="operations"
-              value="//"
-              aria-label="//"
+              value="/"
+              aria-label="/"
               v-model="_division_operation"
-              v-on:change="updateOperationsList"
+              v-on:change="updateOperationsList('/')"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -107,12 +109,12 @@ function showLevelsCount() {
               value="*"
               aria-label="*"
               v-model="_multiplication_operation"
-              v-on:change="updateOperationsList"
+              v-on:change="updateOperationsList('*')"
             />
           </div>
         </div>
 
-        <div class="join w-full md:w-1/3  md:ml-5xs">
+        <div class="join w-full md:w-1/3 md:ml-5xs">
           <input
             class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary"
             type="radio"
@@ -150,8 +152,13 @@ function showLevelsCount() {
           </div>
         </div>
         <div class="join w-full md:w-1/3">
-          <input class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary" type="radio"
-                            name="" aria-label="тип" disabled />
+          <input
+            class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary"
+            type="radio"
+            name=""
+            aria-label="тип"
+            disabled
+          />
           <div class="join w-full">
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -173,7 +180,6 @@ function showLevelsCount() {
           </div>
         </div>
         <div class="join w-full md:w-1/3 md:ml-5xs">
-
           <div class="join w-full" v-if="_show_game_time">
             <input
               class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary"
@@ -189,6 +195,7 @@ function showLevelsCount() {
                 name="time"
                 value="15s"
                 aria-label="15"
+                checked="checked"
                 @click="_game_session.time = 15"
               />
               <input
@@ -219,7 +226,7 @@ function showLevelsCount() {
           </div>
           <div class="join w-full" v-if="_show_levels_count">
             <input
-              class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary"
+              class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary border-primary"
               type="radio"
               name="options"
               aria-label="количество"

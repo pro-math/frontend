@@ -71,7 +71,8 @@ export default {
       '6': '30px',
     },
     fontFamily: {
-      body: ["Montserrat"]
+      body: ["Montserrat"],
+      timer: ["Orbitron"],
     },
     borderRadius: {
       'full': '50%',
@@ -81,5 +82,5 @@ export default {
   plugins: [
     // eslint-disable-next-line no-undef
     require('daisyui'),
-  ]
+  ],
 }

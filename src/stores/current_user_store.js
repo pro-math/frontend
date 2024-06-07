@@ -1,11 +1,12 @@
 // import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCurrentUserStore = defineStore({
-  id: 'currentUser',
+
+export const useCurrentUserStore = defineStore("currentUserStore", {
   state: () => ({
     isLogged: false,
-    username: ''
+    username: '',
+    accessToken: ''
   }),
   actions: {
     changeLoggedState() {
@@ -13,6 +14,9 @@ export const useCurrentUserStore = defineStore({
     },
     changeUsername(newUsername) {
       this.username = newUsername
+    },
+    changeAccessToken(newAccessToken) {
+      this.accessToken = newAccessToken
     }
   },
   persist: true

@@ -8,7 +8,7 @@ const storeTheme = useThemeStore()
 
 <template>
   <div class="dropdown mb-72">
-    <div tabindex="0" role="button" class="btn btn-sm m-1">
+    <div tabindex="0" role="button" class="btn btn-sm m-1 w-4xs">
       Тема
       <svg
         width="12px"

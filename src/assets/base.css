@@ -1,0 +1,108 @@
+.dt-container select,
+.dt-container .dataTables_filter input {
+  margin: 0 3rem;
+  color: oklch(var(--bc));
+  /*text-gray-700*/
+  padding-left: 1rem;
+  /*pl-4*/
+  padding-right: 1rem;
+  /*pl-4*/
+  padding-top: 0.5rem;
+  /*pl-2*/
+  padding-bottom: 0.5rem;
+  /*pl-2*/
+  line-height: 1.25;
+  /*leading-tight*/
+  border-width: 2px;
+  /*border-2*/
+  border-radius: 0.25rem;
+  border-color: oklch(var(--b3));
+
+  outline: none;
+  /*border-gray-200*/
+
+  background-color: oklch(var(--b3));
+  transition: 0.5s;
+  /*bg-gray-200*/
+}
+.datatables_wrapper label {
+  color: oklch(var(--nc));
+}
+.datatable.hover tbody tr {
+}
+/*Row Hover*/
+.datatable.hover tbody tr:hover,
+.datatable.display tbody tr:hover {
+  background-color: oklch(var(--n));
+
+  /*bg-indigo-100*/
+}
+
+/*Pagination Buttons*/
+.datatables_wrapper .dataTables_paginate .paginate_button {
+  font-weight: 700;
+  /*font-bold*/
+  border-radius: 0.25rem;
+  /*rounded*/
+  /* border: 1px solid transparent; */
+  /*border border-transparent*/
+  transition: 0.5s;
+}
+
+/*Pagination Buttons - Current selected */
+.datatables_wrapper .dataTables_paginate .paginate_button.current {
+  color: oklch(var(--p)) !important;
+  /*text-white*/
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  /*shadow*/
+  font-weight: 700;
+  /*font-bold*/
+  border-radius: 0.25rem;
+  /*rounded*/
+  background: oklch(var(--p)) !important;
+  /*bg-indigo-500*/
+  /* border: 1px solid transparent; */
+  /*border border-transparent*/
+}
+
+/*Pagination Buttons - Hover */
+.datatables_wrapper .dataTables_paginate .paginate_button:hover {
+  color: #fff !important;
+  /*text-white*/
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  /*shadow*/
+  font-weight: 700;
+  /*font-bold*/
+  border-radius: 0.25rem;
+  /*rounded*/
+  background: oklch(var(--p)) !important;
+  /*bg-indigo-500*/
+  border: 1px solid transparent;
+  /*border border-transparent*/
+}
+
+/*Add padding to bottom border */
+table.datatable.no-footer {
+  border-bottom: 1px solid #e2e8f0;
+  /*border-b-1 border-gray-300*/
+  background: oklch(var(--n));
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+/*Change colour of responsive icon*/
+table.datatable.dtr-inline.collapsed > tbody > tr > td:first-child:before,
+table.datatable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
+  background-color: #667eea !important;
+  /*bg-indigo-500*/
+}
+.datatables_empty {
+  background-color: oklch(var(--n));
+}
+.datatables_info {
+  color: oklch(var(--nc));
+}

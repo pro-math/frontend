@@ -13,5 +13,6 @@ import RatingTable from './RatingTable.vue'
     </div>
     <RatingNavigationBar />
     <RatingTable />
+    <p class="w-1/6 p-2 border border-primary text-center">Показать ещё</p>
   </section>
 </template>

@@ -1,9 +1,9 @@
 <script setup>
-import { RouterView } from 'vue-router'
-import AppHeader from './components/header_components/AppHeader.vue'
-import AppFooter from './components/footer/AppFooter.vue'
+import { RouterView } from 'vue-router';
+import AppFooter from './components/footer/AppFooter.vue';
+import AppHeader from './components/header_components/AppHeader.vue';
 
-import { useThemeStore } from '@/stores/current_theme_store'
+import { useThemeStore } from '@/stores/current_theme_store';
 const storeTheme =  useThemeStore()
 </script>
 
