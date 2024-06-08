@@ -1,7 +1,7 @@
 <script setup>
 //Модальное окно регистрации
 
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 // import { useRouter } from 'vue-router'
 import axios from 'axios'
 import { validateLogin, validatePassword } from '../../../utils/validators'
@@ -13,7 +13,7 @@ import { validateLogin, validatePassword } from '../../../utils/validators'
 const _username = ref('')
 const _password = ref('')
 const _confirm_password = ref('')
-
+const databaseUrl = inject('databaseUrl')
 
 const signUp = async (evt) => {
   evt.preventDefault()
@@ -36,7 +36,7 @@ const signUp = async (evt) => {
   try {
     // eslint-disable-next-line no-unused-vars
     const response = await axios
-      .post('https://4368-83-171-69-39.ngrok-free.app/api/v1/users/register', {
+      .post(databaseUrl + 'users/register', {
         username: _username.value,
         password: _password.value
       })
