@@ -4,7 +4,7 @@
 import { useCurrentUserStore } from '@/stores/current_user_store'
 import { createRange } from '@/utils/create_range'
 import { generateExample } from '@/utils/generate_example'
-import { inject, onUpdated, reactive } from 'vue'
+import { inject, onUpdated, reactive, ref } from 'vue'
 
 import axios from 'axios'
 
@@ -16,10 +16,12 @@ const _show_game_timer = inject('_show_game_timer')
 const _remaining_time = inject('_remaining_time')
 const _game_end = inject('_game_end')
 const _show_start_button = inject('_show_start_button')
+const _enable_menu = inject('_enable_menu')
 
 const _current_example = reactive({}) //текущий пример
 const _previous_example = reactive({}) //предыдущий пример
 const _next_example = reactive({}) //следующий пример
+const _previous_user_answer = ref(0)
 
 let examples_list = [] // список примеров
 let request_list = []
@@ -40,6 +42,7 @@ function changeExample() {
   } else {
     _game_session.wrong_answers++
   }
+  _previous_user_answer.value = _answer_input.value
   let currentExample = examples_list[pointer]
 
   request_list.push({
@@ -52,18 +55,19 @@ function changeExample() {
 
   _answer_input.value = ''
 
-  if (pointer == examples_list.length - 1 ) {
+  if (pointer == examples_list.length - 1) {
     // pointer++
     _show_start_button.value = true
     _show_game_timer.value = false
     _game_end.value = true
+    _enable_menu.value = true
     _remaining_time.value = 0
   }
 
   if (pointer == examples_list.length - 2) {
     pointer++
     _previous_example.example = examples_list[pointer - 1].example
-    _previous_example.answer = examples_list[pointer - 1].answer
+    _previous_example.answer = _previous_user_answer.value
 
     _current_example.example = examples_list[pointer].example
     _current_example.answer = examples_list[pointer].answer
@@ -74,7 +78,7 @@ function changeExample() {
     pointer++
 
     _previous_example.example = examples_list[pointer - 1].example
-    _previous_example.answer = examples_list[pointer - 1].answer
+    _previous_example.answer = _previous_user_answer.value
 
     _current_example.example = examples_list[pointer].example
     _current_example.answer = examples_list[pointer].answer
@@ -92,6 +96,7 @@ function startGame() {
   request_list = []
   _answer_input.value = ''
   _game_end.value = false
+  _enable_menu.value = false
   _show_game_timer.value = true
   _game_session.correct_answers = 0
   _game_session.wrong_answers = 0
@@ -175,14 +180,15 @@ onUpdated(async () => {
     </p>
     <div class="flex flex-col items-center justify-center space-y-4" v-else>
       <p class="text-xs text-base-content/30 md:text-4xl" v-if="_previous_example.example">
-        {{ _previous_example.example }} = {{ _previous_example.answer }}
+        {{ _previous_example.example.replace('/', '&#247;').replace('*', '&#215;') }} =
+        {{ _previous_example.answer }}
       </p>
       <p class="text-xs text-base-content/30 md:text-4xl" v-else>
         <br />
       </p>
       <div class="flex justify-center items-center">
         <p class="btn hover:bg-none bodrered btn-ghost btn-6xl hover:bg-grey/0 text-xs md:text-5xl">
-          {{ _current_example.example }} =
+          {{ _current_example.example.replace('/', '&#247;').replace('*', '&#215;') }} =
         </p>
         <input
           type="number"
@@ -194,7 +200,7 @@ onUpdated(async () => {
         <!-- <kbd class="bodrered join-item btn  btn-xl bg-primary kbd-lg">Enter</kbd>               -->
       </div>
       <p class="text-xs md:text-4xl text-base-content/30" v-if="_next_example.example">
-        {{ _next_example.example }} =
+        {{ _next_example.example.replace('/', '&#247;').replace('*', '&#215;') }} =
       </p>
       <p class="text-xs md:text-4xl text-base-content/30" v-else><br /></p>
     </div>
@@ -202,8 +208,8 @@ onUpdated(async () => {
 </template>
 
 <style scoped>
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none; /* Кнопки спрятаны */
 }
 </style>
