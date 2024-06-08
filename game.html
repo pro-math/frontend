@@ -16,10 +16,9 @@
     <header>
         <nav class="flex justify-between items-center p-3">
             <div class="logo">
-                <h1 class="font-bold text-3xl col-auto ">ProMath</h1>
+                <h1 class="font-bold text-3xl col-auto"></h1>
             </div>
             <div>
-
                 <!-- выбор темы -->
                 <div class="reg-log flex items-center justify-center space-x-2">
                     <div class="dropdown mb-72">
@@ -79,7 +78,6 @@
                                         </label>
                                         <div class="h-er">
                                             <span class=" marg-er text-dark-red text-xs"></span>
-
                                         </div>
                                     </div>
                                     <div>
@@ -214,8 +212,10 @@
         </nav>
 
     </header>
-    <main class="h-full p-6 my-6 flex flex-col justify-between items-center">
+    
+    <main class="h-full p-6 mb-6 flex flex-col justify-between items-center relative">
         <!-- панель -->
+        
         <section class="">
 
             <div class="test-config flex justify-center">
@@ -223,8 +223,8 @@
                     class="container flex flex-col justify-start  md:flex-row md:flex-wrap md:justify-center items-center gap-y-4 xl:flex-row xl:justify-center ">
 
                     <div class="join w-full md:w-1/3">
-                        <input class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary" type="checkbox" name=""
-                            aria-label="операции" disabled />
+                        <input class="font-bold text-lg join-item btn btn-sm bg-primary after:text-primary"
+                            type="checkbox" name="" aria-label="операции" disabled />
                         <div class="join w-full">
                             <input class="join-item btn btn-sm bg-primary/20 flex-grow" type="checkbox"
                                 name="operations" value="+" aria-label="+" checked="checked" />
@@ -234,11 +234,14 @@
                                 name="operations" value="//" aria-label="//" />
                             <input class="join-item btn btn-sm bg-primary/20 flex-grow" type="checkbox"
                                 name="operations" value="*" aria-label="*" />
+                            <input class="join-item btn btn-sm bg-primary/20 flex-grow" type="checkbox"
+                                name="operations" value="*" aria-label="&gt; &lt; =" />
                         </div>
                     </div>
                     <div class="join w-full md:w-1/3 md:ml-5xs ">
-                        <input class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary" type="radio"
-                            name="" aria-label="сложность" disabled />
+                        <input
+                            class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary"
+                            type="radio" name="" aria-label="сложность" disabled />
                         <div class="join w-full">
                             <input class="join-item btn btn-sm bg-primary/20 flex-grow" type="radio" name="levels"
                                 value="10" aria-label="10" checked="checked" />
@@ -249,8 +252,9 @@
                         </div>
                     </div>
                     <div class="join w-full md:w-1/3">
-                        <input class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary" type="radio"
-                            name="" aria-label="тип" disabled />
+                        <input
+                            class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary"
+                            type="radio" name="" aria-label="тип" disabled />
                         <div class="join w-full ">
                             <input class="join-item btn btn-sm bg-primary/10 flex-grow" type="radio" name="options"
                                 value="time" aria-label="на время" />
@@ -260,7 +264,8 @@
                     </div>
                     <div class="w-full md:w-1/3 md:ml-5xs">
                         <div class="join hidden w-full">
-                            <input class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary"
+                            <input
+                                class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary"
                                 type="radio" name="options" aria-label="время" disabled />
                             <div class="join w-full">
                                 <input class="join-item btn btn-sm bg-primary/10 flex-grow" type="radio" name="time"
@@ -275,7 +280,8 @@
 
                         </div>
                         <div class="join w-full ">
-                            <input class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary"
+                            <input
+                                class="font-bold text-lg  join-item btn btn-sm bg-primary after:text-primary border-primary"
                                 type="radio" name="options" aria-label="количество" disabled />
                             <div class="join w-full">
                                 <input class="join-item btn btn-sm bg-primary/10 flex-grow" type="radio" name="count"
@@ -298,7 +304,8 @@
         <!-- контейнер с примерами -->
         <section class=" container flex flex-col items-center h-full my-6 p-3 rounded-md border bg-base-300 w-5/6 ">
             <!-- таймер или обратный отсчет -->
-            <div class="flex justify-center items-center w-1/6 h-3xs text-sm md:w-1/6 md:h-5xs lg:w-1/6 rounded-box border border-primary/25 ">
+            <div
+                class="flex justify-center items-center w-1/6 h-3xs text-sm md:w-1/6 md:h-5xs lg:w-1/6 rounded-box border border-primary/25 ">
                 <span class=" font-light text-primary/80 text-lg md:text-4xl font-timer ">
                     <span>4445</span>
                 </span>
@@ -321,11 +328,12 @@
                 <div class="flex flex-col items-center justify-center space-y-4  ">
                     <p class="text-xs text-base-content/30 md:text-3xl"> 10000 + 10000 = 5</p>
                     <div class=" flex justify-center items-center ">
-                        <p
-                            class="btn hover:bg-none bodrered btn-ghost btn-6xl hover:bg-grey/0 text-xs md:text-3xl">
-                            9319 + 1234 =</p>
+                        <p class="btn hover:bg-none bodrered btn-ghost btn-6xl hover:bg-grey/0 text-xs md:text-3xl">
+                        </p>
                         <input type="text" placeholder="..."
                             class="join-item input input-primary outline-none text-xs input-xs w-xs md:w-4xs md:input-md md:text-2xl border-2 border-primary bg-opacity-0 focus:border-primary ">
+                        <p class="btn hover:bg-none bodrered btn-ghost btn-6xl hover:bg-grey/0 text-xs md:text-3xl">
+                        </p>
                         <!-- <kbd class="bodrered join-item btn  btn-xl bg-primary kbd-lg">Enter</kbd>               -->
                     </div>
                     <p class="text-xs md:text-3xl text-base-content/30"> 3 + 5 =</p>
@@ -337,11 +345,13 @@
             <!-- счетчик с правильными и неправильными -->
             <div class="flex flex-col w-full lg:flex-row m-6">
 
-                <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center text-xs md:text-lg"><span>Процент</span>
+                <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center text-xs md:text-lg">
+                    <span>Процент</span>
                     <p class=" font-bold text-xs md:text-2xl">70%</p>
                 </div>
                 <div class="divider lg:divider-horizontal "></div>
-                <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center text-xs md:text-lg"><span>Правильно</span>
+                <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center text-xs md:text-lg">
+                    <span>Правильно</span>
                     <p class=" text-dark-green font-bold text-xs md:text-2xl">7</p>
 
                 </div>
@@ -358,8 +368,21 @@
         <!-- <button
             class="btn bordered bg-secondary text-xl btn-xl max-sm:btn-sm border-dark-grey bodrer-4 text-center btn-xl ">
             НАЧАТЬ</button> -->
+            <div class="fixed right-3 bottom-3">
+                <div class="bg-primary card card-compact gap-x-1 w-7xs">
+                    <div class="card-body flex-row items-center ">
+                        <img src="./img/achiev.png" class="w-3xs">
+                        <div class="flex flex-col justify-between">
+                            <p class="text-primary-content font-bold">Название достижения</p>
+                            <span class="text-primary-content text-xs">решено 100 примеdwehflkehwiров
+                                подряд</span>
+                        </div>
+                    </div>
 
+                </div> 
+            </div>
     </main>
+
 </body>
 <footer class="footer items-center p-4 bg-neutral text-neutral-content">
     <aside class="items-center grid-flow-col">
