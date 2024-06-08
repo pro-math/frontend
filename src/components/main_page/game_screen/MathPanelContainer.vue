@@ -1,11 +1,11 @@
 <script setup>
 // Контейнер, содержащий меню игры и таймер
 
-import MathTestHandler from './MathTestHandler.vue';
-import TestResults from './TestResults.vue';
-import TestTimer from './TestTimer.vue';
+import MathTestHandler from './MathTestHandler.vue'
+import TestResults from './TestResults.vue'
+import TestTimer from './TestTimer.vue'
 
-import { inject, provide, ref } from 'vue';
+import { inject, provide, ref } from 'vue'
 
 const _game_session = inject('_game_session')
 const _show_game_timer = inject('_show_game_timer')
@@ -20,6 +20,7 @@ provide('_remaining_time', _remaining_time)
 provide('_game_end', _game_end)
 provide('_show_start_button', _show_start_button)
 provide('_answer_input', _answer_input)
+
 </script>
 
 <template>
