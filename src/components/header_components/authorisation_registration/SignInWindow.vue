@@ -1,11 +1,13 @@
 <script setup>
 //Модальное окно входа
 
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
-import { validateLogin, validatePassword } from '../../../utils/validators'
+import { validateLogin, validatePassword } from '@/utils/validators'
 import { useCurrentUserStore } from '@/stores/current_user_store'
+
+const databaseUrl = inject('databaseUrl')
 
 const storeUser = useCurrentUserStore()
 
@@ -15,7 +17,7 @@ const router = new useRouter()
 const _username = ref('')
 const _password = ref('')
 
-async function signIn (evt) {
+async function signIn(evt) {
   evt.preventDefault()
 
   if (!validateLogin(_username.value)) {
@@ -35,7 +37,7 @@ async function signIn (evt) {
   try {
     // eslint-disable-next-line no-unused-vars
     const response = await axios
-      .post('https://4368-83-171-69-39.ngrok-free.app/api/v1/users/token', {
+      .post(databaseUrl + 'users/token', {
         username: _username.value,
         password: _password.value
       })
