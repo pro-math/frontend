@@ -1,10 +1,10 @@
 <script setup>
 //Основной родительский компонент для страницы с игрой
 
-import MathNavigationBar from '../components/main_page/game_screen/MathNavigationBar.vue';
-import MathPanelContainer from '../components/main_page/game_screen/MathPanelContainer.vue';
+import MathNavigationBar from '@/components/main_page/game_screen/MathNavigationBar.vue'
+import MathPanelContainer from '@/components/main_page/game_screen/MathPanelContainer.vue'
 
-import { provide, reactive, ref } from 'vue';
+import { provide, reactive, ref } from 'vue'
 
 const _game_session = reactive({
   operations: ['+'],
@@ -16,6 +16,8 @@ const _game_session = reactive({
   wrong_answers: 0
 })
 const _show_game_timer = ref(false)
+const _enable_menu = ref(true)
+provide('_enable_menu', _enable_menu)
 provide('_game_session', _game_session)
 provide('_show_game_timer', _show_game_timer)
 </script>
