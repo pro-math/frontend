@@ -1,11 +1,12 @@
 <script setup>
 //Меню настройки игры
 
-import { inject, ref } from 'vue';
+import { inject, ref } from 'vue'
 
 const _show_game_time = ref(false)
 const _show_levels_count = ref(true)
 const _game_session = inject('_game_session')
+const _enable_menu = inject('_enable_menu')
 
 const _plus_operation = ref(true)
 const _minus_operation = ref(false)
@@ -20,28 +21,6 @@ function updateOperationsList(operation) {
       return n != operation
     })
   }
-  // if (_minus_operation.value && !_game_session.operations.includes('-')) {
-  //   _game_session.operations.push('-')
-  // } else if (!_minus_operation.value && _game_session.operations.includes('-')) {
-  //   _game_session.operations = _game_session.operations.filter((n) => {
-  //     return n != '-'
-  //   })
-  // }
-  // if (_multiplication_operation.value && !_game_session.operations.includes('*')) {
-  //   _game_session.operations.push('*')
-  // } else if (!_multiplication_operation.value && _game_session.operations.includes('*')) {
-  //   _game_session.operations = _game_session.operations.filter((n) => {
-  //     return n != '*'
-  //   })
-  // }
-  // if (_division_operation.value && !_game_session.operations.includes('/')) {
-  //   _game_session.operations.push('/')
-  // } else if (!_division_operation.value && _game_session.operations.includes('/')) {
-  //   _game_session.operations = _game_session.operations.filter((n) => {
-  //     return n != '/'
-  //   })
-  // }
-  // console.log(_game_session.operations)
 }
 
 function showGameTime() {
@@ -83,6 +62,7 @@ function showLevelsCount() {
               aria-label="+"
               v-model="_plus_operation"
               v-on:change="updateOperationsList('+')"
+              :disabled="!_enable_menu"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -92,24 +72,27 @@ function showLevelsCount() {
               aria-label="-"
               v-model="_minus_operation"
               v-on:change="updateOperationsList('-')"
+              :disabled="!_enable_menu"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
               type="checkbox"
               name="operations"
               value="/"
-              aria-label="/"
+              aria-label="&#247;"
               v-model="_division_operation"
               v-on:change="updateOperationsList('/')"
+              :disabled="!_enable_menu"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
               type="checkbox"
               name="operations"
               value="*"
-              aria-label="*"
+              aria-label="&#215;"
               v-model="_multiplication_operation"
               v-on:change="updateOperationsList('*')"
+              :disabled="!_enable_menu"
             />
           </div>
         </div>
@@ -132,6 +115,7 @@ function showLevelsCount() {
               aria-label="10"
               checked="checked"
               @click="_game_session.difficulty = 10"
+              :disabled="!_enable_menu"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -140,6 +124,7 @@ function showLevelsCount() {
               value="100"
               aria-label="100"
               @click="_game_session.difficulty = 100"
+              :disabled="!_enable_menu"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -148,6 +133,7 @@ function showLevelsCount() {
               value="1000"
               aria-label="1000"
               @click="_game_session.difficulty = 1000"
+              :disabled="!_enable_menu"
             />
           </div>
         </div>
@@ -167,6 +153,7 @@ function showLevelsCount() {
               value="time"
               aria-label="на время"
               @click="showGameTime"
+              :disabled="!_enable_menu"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -176,6 +163,7 @@ function showLevelsCount() {
               aria-label="на количество"
               checked="checked"
               @click="showLevelsCount"
+              :disabled="!_enable_menu"
             />
           </div>
         </div>
@@ -197,6 +185,7 @@ function showLevelsCount() {
                 aria-label="15"
                 checked="checked"
                 @click="_game_session.time = 15"
+                :disabled="!_enable_menu"
               />
               <input
                 class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -205,6 +194,7 @@ function showLevelsCount() {
                 value="30s"
                 aria-label="30"
                 @click="_game_session.time = 30"
+                :disabled="!_enable_menu"
               />
               <input
                 class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -213,6 +203,7 @@ function showLevelsCount() {
                 value="60s"
                 aria-label="60"
                 @click="_game_session.time = 60"
+                :disabled="!_enable_menu"
               />
               <input
                 class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -221,6 +212,7 @@ function showLevelsCount() {
                 value="90s"
                 aria-label="90"
                 @click="_game_session.time = 90"
+                :disabled="!_enable_menu"
               />
             </div>
           </div>
@@ -241,6 +233,7 @@ function showLevelsCount() {
                 aria-label="10"
                 checked="checked"
                 @click="_game_session.levels_count = 10"
+                :disabled="!_enable_menu"
               />
               <input
                 class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -249,6 +242,7 @@ function showLevelsCount() {
                 value="15"
                 aria-label="15"
                 @click="_game_session.levels_count = 15"
+                :disabled="!_enable_menu"
               />
               <input
                 class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -257,6 +251,7 @@ function showLevelsCount() {
                 value="20"
                 aria-label="20"
                 @click="_game_session.levels_count = 20"
+                :disabled="!_enable_menu"
               />
               <input
                 class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -265,6 +260,7 @@ function showLevelsCount() {
                 value="30"
                 aria-label="30"
                 @click="_game_session.levels_count = 30"
+                :disabled="!_enable_menu"
               />
             </div>
           </div>
