@@ -1,7 +1,7 @@
 <script setup>
 //Таймер
 
-import { inject, onMounted, onUpdated } from 'vue';
+import { inject, onMounted, onUpdated } from 'vue'
 
 const _game_session = inject('_game_session')
 const _show_game_timer = inject('_show_game_timer')
@@ -9,7 +9,6 @@ const _game_end = inject('_game_end')
 const _remaining_time = inject('_remaining_time')
 const _show_start_button = inject('_show_start_button')
 const _answer_input = inject('_answer_input')
-
 
 function startBasicTimer() {
   _remaining_time.value = _game_session.time
@@ -24,7 +23,6 @@ function startBasicTimer() {
   }, 1000)
 }
 
-
 function startReversedTimer() {
   _remaining_time.value = 0
   let timer = setInterval(() => {
@@ -34,7 +32,6 @@ function startReversedTimer() {
     }
   }, 1000)
 }
-
 
 onMounted(() => {
   // startReversedTimer()
