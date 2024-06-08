@@ -1,47 +1,13 @@
 <script setup>
 //Таблица рейтинга
+import { inject, onMounted } from 'vue'
 
-// import DataTable from 'datatables.net-vue3'
-// import DataTablesCore from 'datatables.net'
-// import 'datatables.net-responsive'
-// import 'datatables.net-select'
+const _rating_list = inject('_rating_list')
+const getUserRating = inject('getUserRating')
 
-// DataTable.use(DataTablesCore)
-
-const data = [
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12],
-  [9, 10, 11, 12]
-]
-
-// const options = {
-//   language: {
-//     url: '/russian.json'
-//   },
-//   autoWidth: false,
-//   responsive: true,
-//   search: false
-// }
+onMounted(() => {
+  getUserRating()
+})
 </script>
 
 <template>
@@ -64,120 +30,12 @@ const data = [
             </tr>
           </thead>
           <tbody class="">
-            <tr>
-              <td class="text-sm" >{{ row[0] }}</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
+            <tr v-for="session in _rating_list" :key="session.game_session_id">
+              <td class="text-sm">{{ Math.round((session.correct_count / session.total_count) * 100) }}%</td>
+              <td class="text-sm">{{ session.correct_count }}</td>
+              <td class="text-sm">{{ session.duration }}</td>
+              <td class="text-sm">{{ session.math_operations.join('&nbsp;&nbsp;') }}</td>
             </tr>
-            <!-- <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr>
-            <tr>
-              <td class="text-sm">Процент правильно решенных</td>
-              <td class="text-sm">Количество правильно решенных</td>
-              <td class="text-sm">Затраченное время</td>
-              <td class="text-sm">Операция</td>
-            </tr> -->
           </tbody>
         </table>
       </div>
