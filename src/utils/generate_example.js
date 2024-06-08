@@ -21,9 +21,6 @@ export function generateExample(operations, min, max) {
     }
   }
 
-  // Формирование примера в виде строки
-  const example = `${num1} ${operation} ${num2}`
-
   // Вычисление ответа
   let answer
   switch (operation) {
@@ -42,6 +39,9 @@ export function generateExample(operations, min, max) {
     default:
       answer = 'unknown operation'
   }
+  // Формирование примера в виде строки
+
+  const example = `${num1} ${operation} ${num2}`
 
   return {
     example: example,
