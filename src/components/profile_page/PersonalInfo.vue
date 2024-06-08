@@ -26,9 +26,9 @@ const storeUser = useCurrentUserStore()
       />
     </div>
 
-    <div class="">
+    <!-- <div class="">
       <p class="text-primary/50 text-sm font-bold">EMAIL</p>
       <span class="text-sm">qew@sllslssl.com</span>
-    </div>
+    </div> -->
   </section>
 </template>
