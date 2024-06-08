@@ -1,9 +1,14 @@
 <script setup>
-
 //Контейнер, содержащий меню настройки таблицы результатов и саму таблицу результатов
 
+import { provide, ref } from 'vue'
 import RatingNavigationBar from './RatingNavigationBar.vue'
 import RatingTable from './RatingTable.vue'
+
+const ratingList = ref([])
+provide('ratingList', ratingList)
+
+// const _game_session = inject('_game_session')
 </script>
 
 <template>
@@ -13,6 +18,8 @@ import RatingTable from './RatingTable.vue'
     </div>
     <RatingNavigationBar />
     <RatingTable />
-    <p class="w-1/6 p-2 border border-primary text-center">Показать ещё</p>
+    <p class="w-1/6 p-2 border border-primary text-center cursor-pointer" @click="getUserRating">
+      Показать ещё
+    </p>
   </section>
 </template>
