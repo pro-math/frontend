@@ -260,10 +260,10 @@
 
                 <!-- вот это кнопка выхода -->
                 <div class="bg-primary p-2 rounded-btn btn btn-sm text-primary-content">
-                    <span >
+                    <span>
                         Выйти
                     </span>
-                    
+
                 </div>
                 <!-- <button class="btn btn-sm p-1 border border-primary  font-mono">РЕДАКТИРОВАТЬ</button> -->
 
@@ -286,9 +286,15 @@
                             История игр
                         </span>
                     </div>
-    
+                    <div class="divider w-4 lg:divider-horizontal "></div>
+                    <div class="cursor-pointer">
+                        <span class="text-lg">
+                            Достижения
+                        </span>
+                    </div>
+
                 </div>
-                
+
             </section>
 
 
@@ -378,23 +384,56 @@
 
             </section>
             <section>
-                <div class=" w-full my-6">
-                    <div id='recipients'
-                        class="w-full p-4 mt-6 lg:mt-0 rounded shadow bg-neutral text-neutral-content border border-primary">
-
-
-                        <table id="resultTable" class="stripe responsive hover py-4 w-full">
-                            <thead>
-                                <tr>
-                                    <th data-priority="1" class="text-primary text-sm">Процент правильно решенных</th>
-                                    <th data-priority="2" class="text-primary text-sm">Количество правильно решенных
-                                    </th>
-                                    <th data-priority="3" class="text-primary text-sm">Затраченное время</th>
-                                    <th data-priority="4" class="text-primary text-sm">Операция</th>
+                <div class="w-full my-6">
+                    <div id="recipients"
+                        class="w-full mt-6 lg:mt-0 rounded shadow text-neutral-content border border-primary rounded-box overflow-x-auto h-13xs">
+                        <table class="table display stripe bg-base-100 responsive hover py-4 w-full table-pin-rows table-pin-cols ">
+                            <thead class="">
+                                <tr class="">
+                                    <th class="text-primary-content text-sm bg-primary">Процент правильно решенных</th>
+                                    <th class="text-primary-content text-sm bg-primary">Количество правильно решенных</th>
+                                    <th class="text-primary-content text-sm bg-primary">Затраченное время</th>
+                                    <th class="text-primary-content text-sm bg-primary">Операция</th>
                                     <!-- <th data-priority="5" class="text-primary text-sm"></th> -->
                                 </tr>
                             </thead>
-                            <tbody class="h-96">
+                            <tbody class="text-base-content">
+                                <tr onclick="my_modal_1.showModal()" class="cursor-pointer">
+                                    <td class="text-sm">cmwmcw</td>
+                                    <td class="text-sm">wlwpjcfoiwej</td>
+                                    <td class="text-sm">wfmewlkmfw</td>
+                                    <td class="text-sm">lweflwemflwme</td>
+                                    <!-- само модальное окно -->
+                                    <dialog id="my_modal_1" class="modal">
+                                        <div class="modal-box">
+                                            <h3 class="font-bold text-lg m-2">Все примеры данной игры</h3>
+                                            <div class=" h-7xs overflow-x-scroll overflow-visible p-5 rounded-box bg-base-300  my-0 mx-auto space-y-5">
+                                                <!-- примеры -->
+                                                <p class="text-4xl text-dark-red">2 + 2 = 5 <span class="text-4xl text-neutral-content">(4)</span></p>
+                                                <p class="text-4xl text-dark-green">2 + 2 = 4</p>
+                                                <p class="text-4xl text-dark-red">2 + 2 = 5 <span class="text-4xl text-neutral-content">(4)</span></p>
+                                                <p class="text-4xl text-dark-green">2 + 3 = 5</p>
+                                                <p class="text-4xl text-dark-red">2 + 2 = 5 <span class="text-4xl text-neutral-content">(4)</span></p>
+                                                <p class="text-4xl text-dark-red">2 + 2 = 5 <span class="text-4xl text-neutral-content">(4)</span></p>
+                                                <p class="text-4xl text-dark-green">2 + 2 = 4</p>
+                                                <p class="text-4xl text-dark-red">2 + 2 = 5 <span class="text-4xl text-neutral-content">(4)</span></p>
+                                                <p class="text-4xl text-dark-green">2 + 3 = 5</p>
+                                                <p class="text-4xl text-dark-red">2 + 2 = 5 <span class="text-4xl text-neutral-content">(4)</span></p>
+                                                <p class="text-4xl text-dark-red">2 + 2 = 5 <span class="text-4xl text-neutral-content">(4)</span></p>
+                                                <p class="text-4xl text-dark-green">2 + 2 = 4</p>
+                                                <p class="text-4xl text-dark-red">2 + 2 = 5 <span class="text-4xl text-neutral-content">(4)</span></p>
+                                                <p class="text-4xl text-dark-green">2 + 3 = 5</p>
+                                                <p class="text-4xl text-dark-red">2 + 2 = 5 <span class="text-4xl text-neutral-content">(4)</span></p>
+                                            </div>
+                                            <div class="modal-action">
+                                                <form method="dialog">
+                                                    <!-- if there is a button in form, it will close the modal -->
+                                                    <button class="btn">Close</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </dialog>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -404,14 +443,26 @@
                 <p class="text-3xl pr-6 text-center text-base-content my-3">ДОСТИЖЕНИЯ</p>
 
                 <!-- у этого дива стили поменяла чуть-чуть -->
-                <div class=" w-full flex flex-wrap bg-base-300 p-6 gap-4 pl-14 rounded-box empty:hidden "> 
+                <div class=" w-full flex flex-wrap bg-base-300 p-6 gap-4 pl-14 rounded-box empty:hidden ">
                     <!-- это невыполненная ачивка -->
-                    <div class="bg-neutral card card-compact gap-x-3 w-6.5xs">
+                    <div class="bg-base-100 card card-compact gap-x-3 w-7xs h-4xs">
                         <div class="card-body flex-row items-center ">
-                            <img src="./img/achiev.png" class="w-3xs">
-                            <div class="flex flex-col justify-between">
-                                <p class="font-bold text-neutral-content">Название достижения</p>
-                                <span class=" text-xs text-neutral-content">решено 100 примеdwehflhrthkehwiров
+                            <img src="./img/achiev.png" class="w-5xs">
+                            <div class="flex flex-col justify-between h-full py-2">
+                                <p class="font-bold text-primary">Название достижения</p>
+                                <span class=" text-xs text-base-content">решено 100 примеdwehflhrthkehwiров fvjnfvjn
+                                    подряд</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- полученная ачивка -->
+                    <div class="bg-base-100 card card-compact border-4 border-primary gap-x-3 w-7xs h-4xs">
+                        <div class="card-body flex-row items-center ">
+                            <img src="./img/achiev.png" class="w-5xs">
+                            <div class="flex flex-col justify-between h-full py-2">
+                                <p class="font-bold text-primary">Название достижения</p>
+                                <span class=" text-xs text-base-content">решено 100 примеdwehflhrthkehwiров fvjnfvjn remfkmr
                                     подряд</span>
                             </div>
                         </div>
@@ -420,20 +471,19 @@
 
 
                     <!-- это выполненная меняется только bg на primary можешь просто класс добавлять -->
-                    <div class=" bg-primary card card-compact gap-x-3 w-6.5xs">
+                    <!-- <div class=" bg-primary card card-compact gap-x-3 w-7xs h-4xs">
                         <div class="card-body flex-row items-center ">
-                            <img src="./img/achiev.png" class="w-3xs">
-                            <div class="flex flex-col justify-between">
-                                <!-- и тут цвет текста на text-primary-content -->
+                            <img src="./img/achiev.png" class="w-5xs">
+                            <div class="flex flex-col justify-between h-full py-2">
                                 <p class="text-primary-content font-bold">Название достижения</p>
-                                <span class="text-primary-content text-xs">решено 100 примеdwehflkehwiров
+                                <span class="text-primary-content text-xs">решено 100 пkfmerokfримеdwehflkров krfneroinfgoiernfkjenrkjfnre
                                     подряд</span>
                             </div>
                         </div>
 
-                    </div>
-                    
-                    
+                    </div> -->
+
+
                 </div>
 
             </section>
