@@ -4632,6 +4632,10 @@ html{
   border-radius: var(--rounded-box, 1rem);
 }
 
+.rounded-btn{
+  border-radius: var(--rounded-btn, 0.5rem);
+}
+
 .rounded-full{
   border-radius: 50%;
 }
@@ -4642,6 +4646,10 @@ html{
 
 .border-2{
   border-width: 2px;
+}
+
+.border-b{
+  border-bottom-width: 1px;
 }
 
 .border-black{
@@ -4661,6 +4669,11 @@ html{
 
 .border-primary\/25{
   border-color: var(--fallback-p,oklch(var(--p)/0.25));
+}
+
+.border-b-primary{
+  --tw-border-opacity: 1;
+  border-bottom-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
 }
 
 .bg-base-100{
@@ -5110,6 +5123,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
   content: var(--tw-content);
   --tw-text-opacity: 1;
   color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+}
+
+.empty\:hidden:empty{
+  display: none;
 }
 
 .hover\:bg-grey\/0:hover{
