@@ -152,7 +152,7 @@ function showLevelsCount() {
               name="options"
               value="time"
               aria-label="на время"
-              @click="showGameTime"
+              @click="showGameTime()"
               :disabled="!_enable_menu"
             />
             <input
@@ -162,7 +162,7 @@ function showLevelsCount() {
               value="count"
               aria-label="на количество"
               checked="checked"
-              @click="showLevelsCount"
+              @click="showLevelsCount()"
               :disabled="!_enable_menu"
             />
           </div>
