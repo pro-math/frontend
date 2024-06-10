@@ -17,4 +17,4 @@ COPY . .
 RUN npm run build
 
 # Команда для запуска сервера Vite внутри контейнера
-CMD ["npm", "run", "serve"]
+CMD ["npm", "run", "dev"]
