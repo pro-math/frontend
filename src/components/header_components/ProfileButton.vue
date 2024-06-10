@@ -7,7 +7,7 @@
 <template>
   <div class="avatar">
     <div class="w-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-      <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+      <img src="@/icons/avatar.png" />
     </div>
   </div>
 </template>
