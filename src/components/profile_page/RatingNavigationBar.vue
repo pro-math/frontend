@@ -60,14 +60,14 @@ function showLevelsCount() {
 
 onBeforeMount(async () => {
   _chart_label.value =
-    _rating_settings.game_mode == 'count_mode' ? '% правильно решённых ' : 'Правильных ответов'
+    _rating_settings.game_mode == 'count_mode' ? 'Процент правильно решённых ' : 'Правильных ответов'
   console.log('chart label changed at navbar before mount ' + _chart_label.value)
   await updateAllStats()
 })
 
 onBeforeUpdate(async () => {
   _chart_label.value =
-    _rating_settings.game_mode == 'count_mode' ? '% правильно решённых ' : 'Правильных ответов'
+    _rating_settings.game_mode == 'count_mode' ? 'Процент правильно решённых ' : 'Правильных ответов'
   console.log('chart label changed at navbar update ' + _chart_label.value)
   updateAllStats()
 })

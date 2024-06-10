@@ -22,7 +22,7 @@ function isAchievementUnlocked(achievementId) {
       <div
         :class="{
           'bg-base-100 card card-compact border-4 border-primary gap-x-3 w-7xs h-4xs': isAchievementUnlocked(achievement.id),
-          'bg-base-100 card card-compact gap-x-3 w-7xs h-4xs': !isAchievementUnlocked(achievement.id)
+          'bg-base-100/40 card card-compact gap-x-3 w-7xs h-4xs': !isAchievementUnlocked(achievement.id)
         }"
         v-for="achievement in _all_achievements_list"
         :key="achievement.id"

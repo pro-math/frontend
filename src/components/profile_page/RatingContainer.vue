@@ -24,20 +24,22 @@ function getMoreData() {
     </div>
     <RatingNavigationBar />
     <div
-      class="w-full mt-6 lg:mt-0 rounded shadow text-neutral-content border border-primary rounded-box overflow-x-auto h-13xs"
+      class="w-5/6 mx-6 mt-6 lg:mt-0 rounded shadow text-neutral-content border border-primary rounded-box overflow-x-auto h-13xs"
       v-if="_data_loaded"
     >
-      <LineChart />
+      <LineChart class=""/>
     </div>
     <div
       class="w-full mt-6 lg:mt-0 rounded shadow text-neutral-content border border-primary rounded-box overflow-x-auto h-13xs skeleton"
       v-else
     ></div>
+    <p class="text-3xl pr-6 text-center text-base-content mt-6">ИСТОРИЯ ИГР</p>
     <div
-      class="w-full mt-6 lg:mt-0 rounded shadow text-neutral-content border border-primary rounded-box overflow-x-auto h-13xs"
+      class="w-5/6 mx-6 mt-2 lg:mt-0 rounded shadow text-neutral-content border border-primary rounded-box overflow-x-auto h-13xs"
       v-if="_data_loaded"
       @scrollend="getMoreData()"
     >
+
       <RatingTable />
     </div>
     <div

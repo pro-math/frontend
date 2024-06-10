@@ -92,7 +92,7 @@ onBeforeUpdate(async () => {
 </script>
 
 <template>
-  <Line :options="_chart_options" :data="_chart_data" />
+  <Line :options="_chart_options" :data="_chart_data"/>
 </template>
 
 <style scoped></style>
