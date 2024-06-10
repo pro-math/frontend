@@ -4,7 +4,7 @@
 import { ref, inject } from 'vue'
 // import { useRouter } from 'vue-router'
 import axios from 'axios'
-import { validateLogin, validatePassword } from '../../../utils/validators'
+import { validateLogin, validatePassword } from '@/utils/validators'
 // import { useCurrentUserStore } from '@/stores/current_user_store'
 
 // const storeUser = useCurrentUserStore()
@@ -82,7 +82,10 @@ const signUp = async (evt) => {
             <input type="text" class="grow" placeholder="Никнейм" v-model="_username" />
           </label>
           <div class="h-er">
-            <span class="marg-er text-dark-red text-xs"></span>
+            <span class="marg-er text-dark-red text-xs" v-if="!validateLogin(_username)"
+              >Длина логина должна быть больше 3 и меньше 25 символов <br />и состоять из
+              латиницы</span
+            >
           </div>
         </div>
         <div>
@@ -109,7 +112,11 @@ const signUp = async (evt) => {
             />
           </label>
           <div class="h-er">
-            <span class="marg-er text-dark-red text-xs"></span>
+            <span class="marg-er text-dark-red text-xs" v-if="!validatePassword(_password)"
+              >Длина пароля должна быть больше 8 и меньше 25 символов, <br />
+              состоять из заглавных и строчных букв латиницы, <br />
+              содержать специальные символы</span
+            >
           </div>
         </div>
 
@@ -136,7 +143,7 @@ const signUp = async (evt) => {
             />
           </label>
           <div class="h-er">
-            <span class="marg-er text-dark-red text-xs"></span>
+            <span class="marg-er text-dark-red text-xs" v-if="_password !== _confirm_password">Пароли должны совпадать</span>
           </div>
         </div>
 
