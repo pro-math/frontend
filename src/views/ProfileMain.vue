@@ -66,22 +66,15 @@ async function getChartData() {
     const response = await axios
       .get(import.meta.env.VITE_BASE_URL + 'chart/me', request)
       .then(function (response) {
-        console.log(response)
         if (response.status === 200) {
-          console.log('Chart data received')
-          // console.log(response.data)
           _progress_list.value = response.data
           _data_loaded.value = true
-          // console.log('заполненный лист прогресса', _progress_list)
         } else {
-          console.error('Failed to recieve chart data')
         }
       })
       .catch(function (error) {
-        console.log(error)
       })
   } catch (error) {
-    console.error('Error during receiveing:', error)
   }
 }
 async function getUserRating() {
@@ -111,20 +104,14 @@ async function getUserRating() {
     const response = await axios
       .get(import.meta.env.VITE_BASE_URL + 'ratings/me', request)
       .then(function (response) {
-        console.log(response)
         if (response.status === 200) {
-          console.log('User rating data received')
-          // console.log(response.data)
           _rating_list.value = response.data
         } else {
-          console.error('Data failed')
         }
       })
       .catch(function (error) {
-        console.log(error)
       })
   } catch (error) {
-    console.error('Error during receiveing:', error)
   }
 }
 
@@ -141,20 +128,14 @@ async function getUserAchievements() {
     const response = await axios
       .get(import.meta.env.VITE_BASE_URL + 'achievements/me', request)
       .then(function (response) {
-        console.log(response)
         if (response.status === 200) {
-          console.log('Personal achievements received')
-          // console.log(response.data)
           _achievements_list.value = response.data
         } else {
-          console.error('Failed to recieve personal achievements')
         }
       })
       .catch(function (error) {
-        console.log(error)
       })
   } catch (error) {
-    console.error('Error during receiveing:', error)
   }
 }
 
@@ -171,20 +152,14 @@ async function getAllAchievements() {
     const response = await axios
       .get(import.meta.env.VITE_BASE_URL + 'achievements', request)
       .then(function (response) {
-        console.log(response)
         if (response.status === 200) {
-          console.log('All achievements received')
-          console.log(response.data)
           _all_achievements_list.value = response.data
         } else {
-          console.error('Failed to recieve all achievements')
         }
       })
       .catch(function (error) {
-        console.log(error)
       })
   } catch (error) {
-    console.error('Error during receiveing:', error)
   }
 }
 

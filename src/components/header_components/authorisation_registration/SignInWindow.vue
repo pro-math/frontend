@@ -17,21 +17,15 @@ const _password = ref('')
 
 async function signIn(evt) {
   evt.preventDefault()
-  console.log(1)
 
   if (!validateLogin(_username.value)) {
-    console.error('Неправильно введён логин')
     return
   }
 
   if (!validatePassword(_password.value)) {
-    console.error('Пароль не соответствует требованиям')
     return
   }
-  // storeUser.changeLoggedState()
-  // storeUser.changeUsername(_username.value)
-  // console.log(response.data.access_token)
-  // storeUser.changeAccessToken(response.data.access_token)
+
 
   try {
     // eslint-disable-next-line no-unused-vars
@@ -41,23 +35,18 @@ async function signIn(evt) {
         password: _password.value
       })
       .then(function (response) {
-        console.log(response)
         if (response.status === 200) {
-          console.log('Authorisation successful')
           storeUser.changeLoggedState()
           storeUser.changeUsername(_username.value)
           storeUser.changeAccessToken(response.data.access_token)
           router.push('/profile')
           document.getElementById('my_modal_3').close()
         } else {
-          alert('Authorisation failed')
         }
       })
       .catch(function (error) {
-        console.log(error)
       })
   } catch (error) {
-    console.error('Error during registration:', error)
   }
 }
 </script>

@@ -32,7 +32,6 @@ provide('_rating_settings', _rating_settings)
 
 async function getOverallRating() {
   _limit.value += 10
-  // console.log(_rating_settings)
   _all_rating_data_received.value = false
   try {
     let difficulty =
@@ -46,7 +45,6 @@ async function getOverallRating() {
     for (let operation of _rating_settings.operations) {
       params.append('math_operations', operation)
     }
-    // console.log(params)
 
     let request = {
       params: params
@@ -56,21 +54,15 @@ async function getOverallRating() {
     const response = await axios
       .get(import.meta.env.VITE_BASE_URL + 'ratings', request)
       .then(function (response) {
-        console.log(response)
         if (response.status === 200) {
-          console.log('Overall rating data received')
-          console.log(response)
           _rating_list.value = response.data
           _all_rating_data_received.value = true
         } else {
-          console.error('Data failed')
         }
       })
       .catch(function (error) {
-        console.log(error)
       })
   } catch (error) {
-    console.error('Error during receiveing:', error)
   }
 }
 

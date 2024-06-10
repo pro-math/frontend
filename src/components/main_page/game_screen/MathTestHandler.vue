@@ -129,7 +129,6 @@ function startGame() {
 }
 
 onUpdated(async () => {
-  // console.log(_remaining_time.value)
   if (_game_end.value && storeUser.isLogged) {
     try {
       // eslint-disable-next-line no-unused-vars
@@ -155,19 +154,13 @@ onUpdated(async () => {
           }
         )
         .then((response) => {
-          console.log(response)
           if (response.status === 201) {
-            console.log('Gamesession created successful')
           } else {
-            alert('Registration failed')
           }
         })
         .catch((error) => {
-          // console.log(storeUser.accessToken)
-          console.log(error)
         })
     } catch (error) {
-      console.error('Error during registration:', error)
     }
 
   }

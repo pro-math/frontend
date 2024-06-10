@@ -18,17 +18,14 @@ const signUp = async (evt) => {
   evt.preventDefault()
 
   if (!validateLogin(_username.value)) {
-    console.error('Неправильно введён логин')
     return
   }
 
   if (!validatePassword(_password.value)) {
-    console.error('Пароль не соответствует требованиям')
     return
   }
 
   if (_password.value !== _confirm_password.value) {
-    console.error('Пароли не совпадают')
     return
   }
 
@@ -40,20 +37,15 @@ const signUp = async (evt) => {
         password: _password.value
       })
       .then(function (response) {
-        console.log(response)
         if (response.status === 201) {
-          console.log('Registration successful')
           document.getElementById('my_modal_4').close()
           document.getElementById('my_modal_3').showModal()
         } else {
-          alert('Registration failed')
         }
       })
       .catch(function (error) {
-        console.log(error)
       })
   } catch (error) {
-    console.error('Error during registration:', error)
   }
 }
 </script>
