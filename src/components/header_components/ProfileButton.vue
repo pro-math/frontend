@@ -6,7 +6,7 @@
 
 <template>
   <div class="avatar">
-    <div class="w-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+    <div class="w-3xs rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
       <img src="@/icons/avatar.png" />
     </div>
   </div>

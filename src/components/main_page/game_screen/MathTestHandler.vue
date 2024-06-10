@@ -9,7 +9,7 @@ import { inject, onUpdated, reactive, ref } from 'vue'
 import axios from 'axios'
 
 const storeUser = useCurrentUserStore()
-
+const databaseUrl = inject('databaseUrl')
 const _game_session = inject('_game_session') //инъекция объекта
 const _answer_input = inject('_answer_input') //DOM-элемент поля ввода
 const _show_game_timer = inject('_show_game_timer')
@@ -136,7 +136,7 @@ onUpdated(async () => {
       // eslint-disable-next-line no-unused-vars
       const response = await axios
         .post(
-          'https://4368-83-171-69-39.ngrok-free.app/api/v1/game_sessions/',
+          databaseUrl + 'game_sessions/',
           {
             game_mode: _game_session.game_mode,
             duration:
@@ -178,21 +178,21 @@ onUpdated(async () => {
 
 <template>
   <div
-  class="m-3 flex items-center justify-center w-4/6 h-7xs  border border-dark-grey  p-6 rounded-box bg-neutral/50 "
+  class=" flex items-center justify-center w-4/6 h-7xs  border border-dark-grey  p-1 md:p-6 rounded-box bg-neutral/50 "
   >
-    <p class="text-5xl text-center cursor-pointer" v-if="_show_start_button" @click="startGame">
+    <p class="text-md md:text-5xl text-center cursor-pointer" v-if="_show_start_button" @click="startGame">
       НАЧАТЬ
     </p>
     <div class="flex flex-col items-center justify-center space-y-4" v-else>
-      <p class="text-xs text-base-content/30 md:text-4xl" v-if="_previous_example.example">
+      <p class="text-md text-base-content/30 md:text-4xl" v-if="_previous_example.example">
         {{ _previous_example.example.replace('/', '&#247;').replace('*', '&#215;') }} =
         {{ _previous_example.answer }}
       </p>
-      <p class="text-xs text-base-content/30 md:text-4xl" v-else>
+      <p class="text-md text-base-content/30 md:text-4xl" v-else>
         <br />
       </p>
       <div class="flex justify-center items-center">
-        <p class="btn hover:bg-none bodrered btn-ghost btn-6xl hover:bg-grey/0 text-xs md:text-5xl">
+        <p class="btn hover:bg-none bodrered btn-ghost btn-6xl hover:bg-grey/0 text-md md:text-5xl">
           {{ _current_example.example.replace('/', '&#247;').replace('*', '&#215;') }} =
         </p>
         <input
@@ -205,10 +205,10 @@ onUpdated(async () => {
         />
         <!-- <kbd class="bodrered join-item btn  btn-xl bg-primary kbd-lg">Enter</kbd>               -->
       </div>
-      <p class="text-xs md:text-4xl text-base-content/30" v-if="_next_example.example">
+      <p class="text-md md:text-4xl text-base-content/30" v-if="_next_example.example">
         {{ _next_example.example.replace('/', '&#247;').replace('*', '&#215;') }} =
       </p>
-      <p class="text-xs md:text-4xl text-base-content/30" v-else><br /></p>
+      <p class="text-md md:text-4xl text-base-content/30" v-else><br /></p>
     </div>
   </div>
 </template>

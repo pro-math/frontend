@@ -19,6 +19,7 @@ const _password = ref('')
 
 async function signIn(evt) {
   evt.preventDefault()
+  console.log(1)
 
   if (!validateLogin(_username.value)) {
     console.error('Неправильно введён логин')
@@ -70,7 +71,7 @@ async function signIn(evt) {
         <button class="btn btn-sm btn-circle btn-ghost absolute right-2">✕</button>
       </form>
       <h3 class="font-bold text-lg btn-sm m-2">Вход</h3>
-      <form class="space-y-4 flex justify-center flex-col" @click="signIn()">
+      <form class="space-y-4 flex justify-center flex-col" @submit="signIn">
         <!-- <label class="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +146,7 @@ async function signIn(evt) {
             />
           </label>
         </div> -->
-        <button class="btn btn-md bordered text-xl">войти</button>
+        <button class="btn btn-md bordered text-xl" type="submit">войти</button>
       </form>
     </div>
   </dialog>

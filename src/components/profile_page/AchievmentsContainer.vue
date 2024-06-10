@@ -28,11 +28,14 @@ function isAchievementUnlocked(achievementId) {
         :key="achievement.id"
       >
         <div class="card-body flex-row items-center">
-          <img :src="achievement.image" class="w-3xs" />
+          <div class="rounded-full p-2">
+            <img :src="achievement.image" class="w-5xs bg-base-content/20 rounded-full p-2" />
+
+          </div>
           <div class="flex flex-col justify-between h-full py-2">
             <p
               :class="{
-                'font-bold text-primary': isAchievementUnlocked(
+                'font-bold text-primary ': isAchievementUnlocked(
                   achievement.id
                 ),
                 'font-bold text-primary': !isAchievementUnlocked(
@@ -44,10 +47,10 @@ function isAchievementUnlocked(achievementId) {
             </p>
             <span
               :class="{
-                'text-primary-content text-xs': isAchievementUnlocked(
+                'text-base-content text-xs': isAchievementUnlocked(
                   achievement.id
                 ),
-                'text-xs text-neutral-content': !isAchievementUnlocked(
+                'text-xs text-base-content': !isAchievementUnlocked(
                   achievement.id
                 )
               }"
@@ -60,6 +63,6 @@ function isAchievementUnlocked(achievementId) {
 
 <style scoped>
 .border-special {
-  border-color: #ffdf00; /* Замените на нужный цвет */
+  border-color: oklch(var(--p)); /* Замените на нужный цвет */
 }
 </style>

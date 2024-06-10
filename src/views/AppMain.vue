@@ -23,7 +23,7 @@ provide('_show_game_timer', _show_game_timer)
 </script>
 
 <template>
-  <main class="h-full p-6 my-6 flex flex-col items-center">
+  <main class="h-full p-6 my-6 flex flex-col items-center grow">
     <MathNavigationBar />
     <MathPanelContainer />
   </main>

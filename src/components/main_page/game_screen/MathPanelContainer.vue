@@ -25,7 +25,7 @@ provide('_answer_input', _answer_input)
 
 <template>
   <section
-    class="container flex flex-col items-center h-full my-6 p-3 rounded-box border bg-base-300 w-5/6 "
+    class="container flex flex-col items-center h-full my-6 p-1 md:p-3 rounded-box border bg-base-300 w-5/6 "
   >
     <TestTimer v-if="_show_game_timer" />
     <div

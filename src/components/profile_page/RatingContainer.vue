@@ -20,7 +20,7 @@ function getMoreData() {
 <template>
   <section class="flex items-center justify-center grow p-6 flex-col">
     <div>
-      <p class="font-bold text-xl text-secondary-content my-2">ВАШ РЕЙТИНГ</p>
+      <p class="text-3xl pr-6 text-center text-base-content my-3">ВАШ РЕЙТИНГ</p>
     </div>
     <RatingNavigationBar />
     <div

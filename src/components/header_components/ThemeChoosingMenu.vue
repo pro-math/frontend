@@ -7,8 +7,8 @@ const storeTheme = useThemeStore()
 </script>
 
 <template>
-  <div class="dropdown mb-72">
-    <div tabindex="0" role="button" class="btn btn-sm m-1 w-4xs">
+  <div class="dropdown navbar-start mb-72">
+    <div tabindex="1" role="button" class="btn btn-sm m-1 w-4xs">
       Тема
       <svg
         width="12px"
@@ -20,13 +20,13 @@ const storeTheme = useThemeStore()
         <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
       </svg>
     </div>
-    <ul tabindex="0" class="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52">
+    <ul tabindex="1" class="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52">
       <li>
         <input
           type="radio"
           name="theme-dropdown"
           class="btn btn-sm btn-block btn-ghost justify-start"
-          aria-label="Default"
+          aria-label="Moonlight"
           value="default"
           @click="storeTheme.changeTheme('dark')"
         />

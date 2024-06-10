@@ -22,7 +22,8 @@ const _data_loaded = ref(false)
 const _limit = ref(10)
 const _dates = ref([])
 const _stats = ref([])
-
+// const _current_component = ref('RatingNavigationBar');
+// provide('_current_component', _current_component)
 onBeforeMount( () => {
   _limit.value = 10
 })
@@ -195,6 +196,7 @@ function unLog() {
   router.push('/')
 }
 
+
 provide('_rating_settings', _rating_settings)
 provide('_rating_list', _rating_list)
 provide('_progress_list', _progress_list)
@@ -213,6 +215,7 @@ provide('unLog', unLog)
   <main class="h-full p-6 my-6 flex flex-col items-center">
     <div class="flex container items-center justify-center mx-auto w-5/6 flex-col my-6 space-x-6">
       <PersonalInfo />
+      <!-- <ProfileNavigation /> -->
       <RatingContainer />
     </div>
   </main>
