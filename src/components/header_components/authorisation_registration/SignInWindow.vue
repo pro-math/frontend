@@ -70,7 +70,7 @@ async function signIn(evt) {
         <button class="btn btn-sm btn-circle btn-ghost absolute right-2">✕</button>
       </form>
       <h3 class="font-bold text-lg btn-sm m-2">Вход</h3>
-      <form class="space-y-4 flex justify-center flex-col" @submit="signIn">
+      <form class="space-y-4 flex justify-center flex-col" @click="signIn()">
         <!-- <label class="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +102,10 @@ async function signIn(evt) {
             <input type="text" class="grow" placeholder="Никнейм" v-model="_username" />
           </label>
           <div class="h-er">
-            <span class="marg-er text-dark-red text-xs"></span>
+            <span class="marg-er text-dark-red text-xs" v-if="!validateLogin(_username)"
+              >Длина логина должна быть больше 3 и меньше 25 символов <br />и состоять из
+              латиницы</span
+            >
           </div>
         </div>
         <div>
@@ -122,7 +125,11 @@ async function signIn(evt) {
             <input type="password" placeholder="Пароль" class="grow" value="" v-model="_password" />
           </label>
           <div class="h-er">
-            <span class="marg-er text-dark-red text-xs"></span>
+            <span class="marg-er text-dark-red text-xs" v-if="!validatePassword(_password)"
+              >Длина пароля должна быть больше 8 и меньше 25 символов, <br />
+              состоять из заглавных и строчных букв латиницы, <br />
+              содержать специальные символы</span
+            >
           </div>
         </div>
 
