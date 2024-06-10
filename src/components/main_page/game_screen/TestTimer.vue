@@ -6,6 +6,7 @@ import { inject, onMounted, onUpdated } from 'vue'
 const _game_session = inject('_game_session')
 const _show_game_timer = inject('_show_game_timer')
 const _game_end = inject('_game_end')
+const _enable_menu = inject('_enable_menu')
 const _remaining_time = inject('_remaining_time')
 const _show_start_button = inject('_show_start_button')
 const _answer_input = inject('_answer_input')
@@ -17,7 +18,6 @@ function startBasicTimer() {
       _remaining_time.value -= 1
     }
     if (_game_end.value) {
-      _show_game_timer.value = false
       clearInterval(timer)
     }
   }, 1000)
@@ -45,6 +45,7 @@ onMounted(() => {
 onUpdated(() => {
   if (_remaining_time.value == 0 && _game_session.time > 0) {
     _show_game_timer.value = false
+    _enable_menu.value = true
     _remaining_time.value = _game_session.time
     _answer_input.value = ''
     _show_start_button.value = true
