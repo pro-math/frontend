@@ -1,10 +1,12 @@
 <script setup>
 //Меню настройки игры
 
-import { inject, ref } from 'vue'
+import { inject, onUpdated, ref } from 'vue'
 
 const _rating_settings = inject('_rating_settings')
+const getOverallRating = inject('getOverallRating')
 
+const _something_changed = ref(false)
 const _show_game_time = ref(false)
 const _show_levels_count = ref(true)
 
@@ -33,6 +35,15 @@ function showLevelsCount() {
   _rating_settings.levels_count = 10
   _rating_settings.time = 0
 }
+
+async function somethingChanged(){
+  _something_changed.value = !_something_changed.value
+}
+
+onUpdated(async () => {
+  console.log(_rating_settings)
+  await getOverallRating()
+})
 </script>
 
 <template>
@@ -57,7 +68,7 @@ function showLevelsCount() {
               value="+"
               aria-label="+"
               checked="checked"
-              @click="updateOperationsList('+')"
+              @click="updateOperationsList('+'); somethingChanged()"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -65,7 +76,7 @@ function showLevelsCount() {
               name="operations"
               value="-"
               aria-label="-"
-              @click="updateOperationsList('-')"
+              @click="updateOperationsList('-'); somethingChanged()"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -73,7 +84,7 @@ function showLevelsCount() {
               name="operations"
               value="/"
               aria-label="&#247;"
-              @click="updateOperationsList('/')"
+              @click="updateOperationsList('/'); somethingChanged()"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -81,7 +92,7 @@ function showLevelsCount() {
               name="operations"
               value="*"
               aria-label="&#215;"
-              @click="updateOperationsList('*')"
+              @click="updateOperationsList('*'); somethingChanged()"
             />
           </div>
         </div>
@@ -103,7 +114,7 @@ function showLevelsCount() {
               value="10"
               aria-label="10"
               checked="checked"
-              @click="_rating_settings.difficulty = 10"
+              @click="_rating_settings.difficulty = 10; somethingChanged()"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -111,7 +122,7 @@ function showLevelsCount() {
               name="levels"
               value="100"
               aria-label="100"
-              @click="_rating_settings.difficulty = 100"
+              @click="_rating_settings.difficulty = 100; somethingChanged()"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -119,7 +130,7 @@ function showLevelsCount() {
               name="levels"
               value="1000"
               aria-label="1000"
-              @click="_rating_settings.difficulty = 1000"
+              @click="_rating_settings.difficulty = 1000; somethingChanged()"
             />
           </div>
         </div>
@@ -138,7 +149,7 @@ function showLevelsCount() {
               name="options"
               value="time"
               aria-label="на время"
-              @click="showGameTime"
+              @click="showGameTime();somethingChanged()"
             />
             <input
               class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -147,7 +158,7 @@ function showLevelsCount() {
               value="count"
               aria-label="на количество"
               checked="checked"
-              @click="showLevelsCount"
+              @click="showLevelsCount();somethingChanged()"
             />
           </div>
         </div>
@@ -168,7 +179,7 @@ function showLevelsCount() {
                 value="15s"
                 aria-label="15"
                 checked="checked"
-                @click="_rating_settings.time = 15"
+                @click="_rating_settings.time = 15;somethingChanged()"
               />
               <input
                 class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -176,7 +187,7 @@ function showLevelsCount() {
                 name="time"
                 value="30s"
                 aria-label="30"
-                @click="_rating_settings.time = 30"
+                @click="_rating_settings.time = 30;somethingChanged()"
               />
               <input
                 class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -184,7 +195,7 @@ function showLevelsCount() {
                 name="time"
                 value="60s"
                 aria-label="60"
-                @click="_rating_settings.time = 60"
+                @click="_rating_settings.time = 60;somethingChanged()"
               />
               <input
                 class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -192,7 +203,7 @@ function showLevelsCount() {
                 name="time"
                 value="90s"
                 aria-label="90"
-                @click="_rating_settings.time = 90"
+                @click="_rating_settings.time = 90;somethingChanged()"
               />
             </div>
           </div>
@@ -212,7 +223,7 @@ function showLevelsCount() {
                 value="10"
                 aria-label="10"
                 checked="checked"
-                @click="_rating_settings.levels_count = 10"
+                @click="_rating_settings.levels_count = 10;somethingChanged()"
               />
               <input
                 class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -220,7 +231,7 @@ function showLevelsCount() {
                 name="count"
                 value="15"
                 aria-label="15"
-                @click="_rating_settings.levels_count = 15"
+                @click="_rating_settings.levels_count = 15;somethingChanged()"
               />
               <input
                 class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -228,7 +239,7 @@ function showLevelsCount() {
                 name="count"
                 value="20"
                 aria-label="20"
-                @click="_rating_settings.levels_count = 20"
+                @click="_rating_settings.levels_count = 20;somethingChanged()"
               />
               <input
                 class="join-item btn btn-sm bg-primary/20 flex-grow"
@@ -236,7 +247,7 @@ function showLevelsCount() {
                 name="count"
                 value="30"
                 aria-label="30"
-                @click="_rating_settings.levels_count = 30"
+                @click="_rating_settings.levels_count = 30;somethingChanged()"
               />
             </div>
           </div>
@@ -244,6 +255,6 @@ function showLevelsCount() {
       </div>
     </div>
   </section>
+  <p class="hidden">{{ _something_changed }}</p>
 </template>
 
-<style scoped></style>
