@@ -72,7 +72,7 @@ async function getChartData() {
           // console.log(response.data)
           _progress_list.value = response.data
           _data_loaded.value = true
-          console.log('заполненный лист прогресса', _progress_list)
+          // console.log('заполненный лист прогресса', _progress_list)
         } else {
           console.error('Failed to recieve chart data')
         }
@@ -113,8 +113,8 @@ async function getUserRating() {
       .then(function (response) {
         console.log(response)
         if (response.status === 200) {
-          console.log('Data received')
-          console.log(response.data)
+          console.log('User rating data received')
+          // console.log(response.data)
           _rating_list.value = response.data
         } else {
           console.error('Data failed')
@@ -144,7 +144,7 @@ async function getUserAchievements() {
         console.log(response)
         if (response.status === 200) {
           console.log('Personal achievements received')
-          console.log(response.data)
+          // console.log(response.data)
           _achievements_list.value = response.data
         } else {
           console.error('Failed to recieve personal achievements')

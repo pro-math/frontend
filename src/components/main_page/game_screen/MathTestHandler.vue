@@ -129,7 +129,7 @@ function startGame() {
 }
 
 onUpdated(async () => {
-  console.log(_remaining_time.value)
+  // console.log(_remaining_time.value)
   if (_game_end.value && storeUser.isLogged) {
     try {
       // eslint-disable-next-line no-unused-vars
@@ -163,7 +163,7 @@ onUpdated(async () => {
           }
         })
         .catch((error) => {
-          console.log(storeUser.accessToken)
+          // console.log(storeUser.accessToken)
           console.log(error)
         })
     } catch (error) {

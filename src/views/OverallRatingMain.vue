@@ -46,7 +46,7 @@ async function getOverallRating() {
     for (let operation of _rating_settings.operations) {
       params.append('math_operations', operation)
     }
-    console.log(params)
+    // console.log(params)
 
     let request = {
       params: params
@@ -58,7 +58,7 @@ async function getOverallRating() {
       .then(function (response) {
         console.log(response)
         if (response.status === 200) {
-          console.log('Data received')
+          console.log('Overall rating data received')
           console.log(response)
           _rating_list.value = response.data
           _all_rating_data_received.value = true

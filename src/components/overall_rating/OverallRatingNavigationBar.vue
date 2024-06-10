@@ -41,7 +41,7 @@ async function somethingChanged(){
 }
 
 onUpdated(async () => {
-  console.log(_rating_settings)
+  // console.log(_rating_settings)
   await getOverallRating()
 })
 </script>
