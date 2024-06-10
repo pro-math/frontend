@@ -39,7 +39,6 @@ function getMoreData() {
       v-if="_data_loaded"
       @scrollend="getMoreData()"
     >
-
       <RatingTable />
     </div>
     <div
