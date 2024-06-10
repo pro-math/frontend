@@ -23,8 +23,7 @@ async function updateAllStats() {
   getUserRating()
   getUserAchievements()
   getAllAchievements()
-  // console.log('updated date stats ' + _dates.value)
-  // console.log(_data_loaded.value)
+
 }
 
 function somethingChanged() {
