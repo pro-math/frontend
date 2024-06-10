@@ -19,7 +19,7 @@ const store = useCurrentUserStore()
           </div>
           <div tabindex="1" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box space-y-2">
             
-              <RouterLink to="/rating"><span class="btn btn-sm w-4xs"> Рейтинги </span></RouterLink>
+              <RouterLink to="/rating"><span class="btn btn-sm w-4xs"> Рейтинг </span></RouterLink>
             
 
             <!-- <AuthorisationContainer v-if="!store.isLogged"  class="flex-col space-y-2"/> -->
@@ -41,7 +41,7 @@ const store = useCurrentUserStore()
             <div class="reg-log flex items-center space-x-2">
               
               <div  class="hidden lg:flex">
-                <RouterLink to="/rating"><span class="btn btn-sm w-4xs"> Рейтинги </span></RouterLink>
+                <RouterLink to="/rating"><span class="btn btn-sm w-4xs"> Рейтинг </span></RouterLink>
               </div>
               <AuthorisationContainer v-if="!store.isLogged" />
             </div>

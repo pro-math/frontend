@@ -24,7 +24,7 @@ function getMoreData() {
     </div>
     <RatingNavigationBar />
     <div
-      class="w-5/6 mx-6 mt-6 lg:mt-0 rounded shadow text-neutral-content border border-primary rounded-box overflow-x-auto h-13xs"
+      class="w-5/6 lg:w-5/6 mx-6 mt-6 lg:mt-0 rounded shadow text-neutral-content border border-primary rounded-box overflow-x-auto h-13xs"
       v-if="_data_loaded"
     >
       <LineChart class=""/>
