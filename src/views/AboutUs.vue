@@ -6,7 +6,7 @@
   <main class="h-full p-6 my-6 flex flex-col items-center">
     <div class="container my-0 mx-auto p-6 space-y-4xs">
       <div class="flex justify-start items-center space-x-6 p-6">
-        <img src="../icons/sergei.img" alt="" class="w-13xs rounded-box" />
+        <img src="../icons/sergei.jpg" alt="" class="w-13xs rounded-box" />
         <div class="w-13xs text-lg space-y-6">
           <div class="space-y-1">
             <p class="text-primary text-3xl">Сергей Иксанов</p>
@@ -26,7 +26,7 @@
           <p class="text-justify text-md w-20xs">Здравствуйте, меня зовут Максим и я вроде как frontend разработчик на Vue.js. Закончил 10 класс физико-математического лицея г.Сыктывкара. Кроме учёбы в лицее, начиная с 9 класса, я активно изучаю программирование в ЦЦОД IT-CUBE. За два года изучения программирования я успел изучить языки программирования: Java, Python, JavaScript, а также язык разметки HTML и CSS. ProMath стал моим первым опытом использования Vue.js, так что не судите строго:)</p>
       </div>
       <div>
-        <img src="../icons/maxim.img" alt="" class="w-20xs rounded-box" />
+        <img src="../icons/maxim.jpg" alt="" class="w-20xs rounded-box" />
         <p class="text-md text-primary text-right">Тот, что справа</p>
       </div>
 

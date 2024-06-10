@@ -1,13 +1,11 @@
 <script setup>
 //Модальное окно входа
 
-import { ref, inject } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
 import { validateLogin, validatePassword } from '@/utils/validators'
 import { useCurrentUserStore } from '@/stores/current_user_store'
-
-const databaseUrl = inject('databaseUrl')
 
 const storeUser = useCurrentUserStore()
 
@@ -38,7 +36,7 @@ async function signIn(evt) {
   try {
     // eslint-disable-next-line no-unused-vars
     const response = await axios
-      .post(databaseUrl + 'users/token', {
+      .post(import.meta.env.VITE_BASE_URL + 'users/token', {
         username: _username.value,
         password: _password.value
       })

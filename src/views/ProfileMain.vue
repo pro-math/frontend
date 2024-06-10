@@ -6,12 +6,11 @@ import RatingContainer from '@/components/profile_page/RatingContainer.vue'
 
 import { useCurrentUserStore } from '@/stores/current_user_store'
 import axios from 'axios'
-import { inject, provide, reactive, ref, onBeforeMount } from 'vue'
+import { provide, reactive, ref, onBeforeMount } from 'vue'
 import { useRouter } from 'vue-router'
 
 const storeUser = useCurrentUserStore()
 const router = new useRouter()
-const databaseUrl = inject('databaseUrl')
 
 const _rating_list = ref([])
 const _progress_list = ref([])
@@ -65,7 +64,7 @@ async function getChartData() {
 
     // eslint-disable-next-line no-unused-vars
     const response = await axios
-      .get(databaseUrl + 'chart/me', request)
+      .get(import.meta.env.VITE_BASE_URL + 'chart/me', request)
       .then(function (response) {
         console.log(response)
         if (response.status === 200) {
@@ -110,7 +109,7 @@ async function getUserRating() {
 
     // eslint-disable-next-line no-unused-vars
     const response = await axios
-      .get(databaseUrl + 'ratings/me', request)
+      .get(import.meta.env.VITE_BASE_URL + 'ratings/me', request)
       .then(function (response) {
         console.log(response)
         if (response.status === 200) {
@@ -140,7 +139,7 @@ async function getUserAchievements() {
     }
     // eslint-disable-next-line no-unused-vars
     const response = await axios
-      .get(databaseUrl + 'achievements/me', request)
+      .get(import.meta.env.VITE_BASE_URL + 'achievements/me', request)
       .then(function (response) {
         console.log(response)
         if (response.status === 200) {
@@ -170,7 +169,7 @@ async function getAllAchievements() {
     }
     // eslint-disable-next-line no-unused-vars
     const response = await axios
-      .get(databaseUrl + 'achievements', request)
+      .get(import.meta.env.VITE_BASE_URL + 'achievements', request)
       .then(function (response) {
         console.log(response)
         if (response.status === 200) {

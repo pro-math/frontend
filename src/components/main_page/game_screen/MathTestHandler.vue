@@ -9,7 +9,6 @@ import { inject, onUpdated, reactive, ref } from 'vue'
 import axios from 'axios'
 
 const storeUser = useCurrentUserStore()
-const databaseUrl = inject('databaseUrl')
 const _game_session = inject('_game_session') //инъекция объекта
 const _answer_input = inject('_answer_input') //DOM-элемент поля ввода
 const _show_game_timer = inject('_show_game_timer')
@@ -136,7 +135,7 @@ onUpdated(async () => {
       // eslint-disable-next-line no-unused-vars
       const response = await axios
         .post(
-          databaseUrl + 'game_sessions/',
+          import.meta.env.VITE_BASE_URL + 'game_sessions/',
           {
             game_mode: _game_session.game_mode,
             duration:

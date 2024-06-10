@@ -3,9 +3,8 @@ import OverallRatingNavigationBar from '@/components/overall_rating/OverallRatin
 import OverallRatingTable from '@/components/overall_rating/OverallRatingTable.vue'
 import axios from 'axios'
 import { onMounted } from 'vue';
-import { inject, provide, reactive, ref, onBeforeMount } from 'vue'
+import { provide, reactive, ref, onBeforeMount } from 'vue'
 
-const databaseUrl = inject('databaseUrl')
 
 const _rating_list = ref([])
 const _all_rating_data_received = ref(false)
@@ -55,7 +54,7 @@ async function getOverallRating() {
 
     // eslint-disable-next-line no-unused-vars
     const response = await axios
-      .get(databaseUrl + 'ratings', request)
+      .get(import.meta.env.VITE_BASE_URL + 'ratings', request)
       .then(function (response) {
         console.log(response)
         if (response.status === 200) {

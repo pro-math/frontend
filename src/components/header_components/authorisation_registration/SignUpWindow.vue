@@ -1,7 +1,7 @@
 <script setup>
 //Модальное окно регистрации
 
-import { ref, inject } from 'vue'
+import { ref } from 'vue'
 // import { useRouter } from 'vue-router'
 import axios from 'axios'
 import { validateLogin, validatePassword } from '@/utils/validators'
@@ -13,7 +13,6 @@ import { validateLogin, validatePassword } from '@/utils/validators'
 const _username = ref('')
 const _password = ref('')
 const _confirm_password = ref('')
-const databaseUrl = inject('databaseUrl')
 
 const signUp = async (evt) => {
   evt.preventDefault()
@@ -36,7 +35,7 @@ const signUp = async (evt) => {
   try {
     // eslint-disable-next-line no-unused-vars
     const response = await axios
-      .post(databaseUrl + 'users/register', {
+      .post(import.meta.env.VITE_BASE_URL + 'users/register', {
         username: _username.value,
         password: _password.value
       })
