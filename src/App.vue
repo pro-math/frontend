@@ -8,7 +8,7 @@ import { useThemeStore } from '@/stores/current_theme_store'
 
 const storeTheme = useThemeStore()
 
-const databaseUrl = 'https://c6d8-176-59-7-67.ngrok-free.app/v1/'
+const databaseUrl = 'https://4368-83-171-69-39.ngrok-free.app/api/v1/'
 provide('databaseUrl', databaseUrl)
 </script>
 
