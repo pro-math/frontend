@@ -25,6 +25,7 @@ const _previous_user_answer = ref(0)
 
 let examples_list = [] // список примеров
 let request_list = []
+let remember_duration = 0
 let magnitude = _game_session.difficulty.toString().length
 let { min_number, max_number } = createRange(magnitude)
 let pointer = 0 //счётчик текущего примера
@@ -57,6 +58,7 @@ function changeExample() {
 
   if (pointer == examples_list.length - 1) {
     // pointer++
+    remember_duration = _remaining_time.value
     _show_start_button.value = true
     _show_game_timer.value = false
     _game_end.value = true
@@ -128,7 +130,7 @@ function startGame() {
 }
 
 onUpdated(async () => {
-  console.log(_game_end.value)
+  console.log(_remaining_time.value)
   if (_game_end.value && storeUser.isLogged) {
     try {
       // eslint-disable-next-line no-unused-vars
@@ -137,7 +139,8 @@ onUpdated(async () => {
           'https://4368-83-171-69-39.ngrok-free.app/api/v1/game_sessions/',
           {
             game_mode: _game_session.game_mode,
-            duration: _game_session.time > 0 ? _game_session.time : _remaining_time.value,
+            duration:
+              _game_session.game_mode == 'time_mode' ? _game_session.time : remember_duration,
             math_operations: _game_session.operations,
             examples_category: _game_session.difficulty,
             examples: request_list,
@@ -167,13 +170,15 @@ onUpdated(async () => {
     } catch (error) {
       console.error('Error during registration:', error)
     }
+
   }
+  
 })
 </script>
 
 <template>
   <div
-    class="m-3 flex items-center justify-center w-4/6 h-7xs border border-dark-grey p-6 rounded-md bg-neutral/50"
+  class="m-3 flex items-center justify-center w-4/6 h-7xs  border border-dark-grey  p-6 rounded-box bg-neutral/50 "
   >
     <p class="text-5xl text-center cursor-pointer" v-if="_show_start_button" @click="startGame">
       НАЧАТЬ
@@ -195,6 +200,7 @@ onUpdated(async () => {
           placeholder="..."
           class="join-item input input-primary outline-none text-xs input-xs w-xs md:w-4xs md:input-md md:text-2xl border-2 border-primary bg-opacity-0 focus:border-primary"
           v-model="_answer_input"
+          :autofocus="!_game_end"
           @keyup.enter="changeExample"
         />
         <!-- <kbd class="bodrered join-item btn  btn-xl bg-primary kbd-lg">Enter</kbd>               -->
